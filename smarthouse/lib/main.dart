@@ -1,22 +1,18 @@
-import 'dart:convert';
-import 'dart:ffi';
 
-import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:smarthouse/Home/navBar.dart';
 import 'package:smarthouse/Home/Led/addLed.dart';
-import 'package:smarthouse/tessst.dart';
-import 'package:http/http.dart' as http;
+
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  FirebaseDatabase database = FirebaseDatabase.instance;
   runApp(const MyApp());
-}
+} 
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key); 
@@ -29,7 +25,7 @@ class MyApp extends StatelessWidget {
       title: 'SmartHouse',
       theme: ThemeData.dark(),
       darkTheme: ThemeData.dark(),
-      home: const MyHomePage(title: 'SmartHouse '),
+      home: const MyHomePage(title: 'SmartHouse'),
     );
   }
 }

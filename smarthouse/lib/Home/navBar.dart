@@ -4,6 +4,7 @@ import 'package:smarthouse/Home/Maison.dart';
 import 'package:smarthouse/Home/Pieces/room.dart';
 import 'package:smarthouse/Home/Led/addLed.dart';
 import 'package:smarthouse/Home/Raccourcis/raccourcis.dart';
+import 'package:smarthouse/Home/enConstruction.dart';
 
 class navBar extends StatefulWidget {
   const navBar({ Key? key }) : super(key: key);
@@ -42,7 +43,8 @@ void ontapped(int index){
                  Home(),
                 donnees(),
                  room(),
-                 raccourcis()
+                 raccourcis(),
+                 construction()
                  
                ],
              ),
