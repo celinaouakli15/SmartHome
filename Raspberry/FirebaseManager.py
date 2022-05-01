@@ -1,7 +1,8 @@
 import firebase_admin
 from firebase_admin import credentials
-#from firebase_admin import firestore
-from datetime import datetime, timedelta
+from firebase_admin import firestore
+from google.cloud import firestore
+#from datetime import datetime, timedelta
 from firebase_admin import db
 
 
