@@ -1,8 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:smarthouse/Home/Led/modifier.dart';
-import 'package:smarthouse/main.dart';
+import 'package:smarthouse/Home/Led/optionLed.dart';
 
 import 'addLed.dart';
 
@@ -31,7 +30,7 @@ class _allLedState extends State<allLed> {
             icon: Icon(Icons.add), onPressed: () { 
                    Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => const modifier(),
+    MaterialPageRoute(builder: (context) => const modifierLed(),
     fullscreenDialog: true,
     )
     );
@@ -48,11 +47,11 @@ class _allLedState extends State<allLed> {
             
             mainAxisAlignment: MainAxisAlignment.center,
             children: [ 
-               Text("Tout Eteindre"),allOff(),   
-               Text("SALON"),ledSalon(),
-                Text("CUISINE"),ledCuisine(),
-                 Text("CHAMBRE"),ledChambre(),
-                  Text("GARAGE"),ledGarage(),
+              allOff(),   
+              ledSalon(),
+                ledCuisine(),
+               ledChambre(),
+                 ledGarage(),
          
              
       
@@ -78,7 +77,7 @@ class ledSalon extends StatefulWidget {
 }
 
 class _ledSalonState extends State<ledSalon> {
- 
+
    Stream<QuerySnapshot> statusLed = FirebaseFirestore.instance.collection('Led').snapshots(includeMetadataChanges: true);
   @override
   Widget build(BuildContext context) {
@@ -98,13 +97,25 @@ class _ledSalonState extends State<ledSalon> {
           children: snapshot.data!.docs.map((DocumentSnapshot document) {
                 Map<String, dynamic> ledStatus = document.data()! as Map<String, dynamic>;
                bool valeur = ledStatus['status'];
-         
+         int i = 0;
+        
+    
            
             return Container(
               child: Column(
                 children: [
-                      
+                         if(ledStatus['piece']=="salon")...[
+                        Column(children: [  Text("Salon"),
+                             
+                             ],)
+  
+                          
+                
+
+                         ],
                   if(ledStatus['piece']=="salon")...[
+                  
+                  
             Container(
                      margin: const EdgeInsets.fromLTRB(20,0,20,0),                 
                  decoration: BoxDecoration(border: Border.all(width: 3),
@@ -139,6 +150,7 @@ class _ledSalonState extends State<ledSalon> {
   value:ledStatus['status'],
   onChanged: (value){
     setState(() {
+
 
 if(ledStatus['status']==true){
                         FirebaseFirestore.instance.collection('Led').
@@ -185,11 +197,13 @@ if(ledStatus['status']==true){
                 
                 
               ),
+            
             );
+            
           }).toList(),
-        );
+        ); 
       },
-      
+       
     );
   }
 }

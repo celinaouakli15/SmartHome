@@ -55,41 +55,29 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
                    backgroundColor: Color.fromARGB(221, 23, 22, 22),
 
-          
+          title: Text("SmartHouse"),
    automaticallyImplyLeading: false,
+       
         
-        actions: [
-          IconButton(
-            icon: Icon(Icons.menu), onPressed: () { 
-                   Navigator.push(
+        
+      ),
+           body: Center (
+             child: SingleChildScrollView(
+               
+               child: Column(
+                 
+                 mainAxisAlignment: MainAxisAlignment.center,
+                 children: [
+              ElevatedButton(
+  
+  onPressed: (){
+   
+  Navigator.push(
     context,
     MaterialPageRoute(builder: (context) => const navBar()));
+   
 
-             },
-        ),
-         IconButton(
-            icon: Icon(Icons.add), onPressed: () { 
-                   Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => const addLed(),
-    fullscreenDialog: true,
-    )
-    );
-
-             },
-        )
-        
-        ],
-      ),
-           body: SingleChildScrollView(
-             child: Center(child: Column(children: [
-               Text("Tout les Volets"),
-               volet(),
-              Text("Toutes les Leds"), 
-              led(),
-              Text("Ttemperature"), temperature(),
-          onoff(),
-             
+}, child: Text("Commencer")),
              
               
               ],),),

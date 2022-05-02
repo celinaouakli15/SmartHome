@@ -1,14 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:smarthouse/Home/Led/addLed.dart';
 
-class delete extends StatefulWidget {
-  const delete({ Key? key }) : super(key: key);
+class deleteLed extends StatefulWidget {
+  const deleteLed({ Key? key }) : super(key: key);
 
   @override
-  State<delete> createState() => _deleteState();
+  State<deleteLed> createState() => _deleteLedState();
 }
 
-class _deleteState extends State<delete> {
+class _deleteLedState extends State<deleteLed> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -116,6 +117,70 @@ ElevatedButton(
       },
     );
   }
+}class modifierLed extends StatefulWidget {
+  const modifierLed({ Key? key }) : super(key: key);
+
+  @override
+  State<modifierLed> createState() => _modifierLedState();
 }
 
+class _modifierLedState extends State<modifierLed> {
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Option Capteur'),
+                   backgroundColor: Color.fromARGB(221, 23, 22, 22),
+
+      ),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Center(
+            child: Column(
+              children: [
+              
+
+
+ElevatedButton(
+  style: ElevatedButton.styleFrom(
+    minimumSize: const Size.fromHeight(50),
+  ),
+  onPressed: () {
+      Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const addLed()));
+  
+  
+  },
+  child: const Text('Ajouter'),
+),
+SizedBox(height: 20,),
+
+
+
+ElevatedButton(
+  style: ElevatedButton.styleFrom(
+    minimumSize: const Size.fromHeight(50),
+  ),
+  onPressed: () {
+    Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const deleteLed()));
+  
+  },
+  child: const Text('Suprimer'),
+),
+
+SizedBox(height: 20,),
+
+],
+        ),
+          ),
+        ),
+      ),
+    );
+  }
+}
 //FirebaseFirestore.instance.collection('Led').doc(document.id).delete();

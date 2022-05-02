@@ -2,15 +2,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:multiselect/multiselect.dart';
 
-class addVolet extends StatefulWidget {
-  const addVolet({ Key? key }) : super(key: key);
+class addAlarme extends StatefulWidget {
+  const addAlarme({ Key? key }) : super(key: key);
 
   @override
-  State<addVolet> createState() => _addVoletState();
+  State<addAlarme> createState() => _addAlarmeState();
 }
 
-class _addVoletState extends State<addVolet> {
-  final nameController = TextEditingController();
+class _addAlarmeState extends State<addAlarme> {
+ final nameController = TextEditingController();
   final pieceController = TextEditingController();
   final posterController = TextEditingController();
   List<String> pieces = [];
@@ -19,7 +19,7 @@ class _addVoletState extends State<addVolet> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ajout Volet'),
+        title: const Text('Ajout Alarme'),
                    backgroundColor: Color.fromARGB(221, 23, 22, 22),
 
       ),
@@ -74,7 +74,7 @@ ElevatedButton(
    
    
     if(pieceController!="" && nameController!=""){ 
-      FirebaseFirestore.instance.collection('Volet').
+      FirebaseFirestore.instance.collection('alarm').
     add({
       'nom': nameController.value.text ,
       'status': false,

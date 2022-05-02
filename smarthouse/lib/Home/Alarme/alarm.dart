@@ -1,8 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smarthouse/Home/Alarme/optionAlarm.dart';
+import 'package:smarthouse/Home/Led/optionLed.dart';
 
-import '../Led/modifier.dart';
 
 class allAlarme extends StatefulWidget {
   const allAlarme({ Key? key }) : super(key: key);
@@ -28,7 +29,7 @@ class _allAlarmeState extends State<allAlarme> {
             icon: Icon(Icons.add), onPressed: () { 
                    Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => const modifier(),
+    MaterialPageRoute(builder: (context) => const modifieralarme(),
     fullscreenDialog: true,
     )
     );

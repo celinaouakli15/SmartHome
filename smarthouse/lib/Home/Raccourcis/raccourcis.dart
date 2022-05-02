@@ -25,9 +25,7 @@ class _raccourcisState extends State<raccourcis> {
                      crossAxisAlignment: CrossAxisAlignment.center,
                      children: [
                       
-                      
-        
-                         SizedBox(height: 20,),
+    SizedBox(height: 20,),
                          shortcut(),
 
                          RaisedButton(onPressed: (){

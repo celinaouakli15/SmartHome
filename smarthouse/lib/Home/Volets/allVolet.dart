@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smarthouse/Home/Volets/addVolet.dart';
+import 'package:smarthouse/Home/Volets/optionVolet.dart';
 
 import '../Led/addLed.dart';
 
@@ -18,6 +19,8 @@ class _allVoletState extends State<allVolet> {
     return Scaffold(
         appBar: AppBar(
       
+           backgroundColor: Color.fromARGB(221, 23, 22, 22),
+
         title: Text("Volets"),
        
  
@@ -28,7 +31,7 @@ class _allVoletState extends State<allVolet> {
             icon: Icon(Icons.add), onPressed: () { 
                    Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => const addVolet(),
+    MaterialPageRoute(builder: (context) => const modifierVolet(),
     fullscreenDialog: true,
     )
     );
