@@ -107,15 +107,21 @@ class _voletSalonState extends State<voletSalon> {
                 children: [
                 
                   if(statusVolet['piece']=="salon")...[
-               Container(color: Colors.red,
-               child:  Container(
-                 margin: const EdgeInsets.all(20.0),
-                 
-                 decoration: BoxDecoration(border: Border.all(width: 2),
+                  Container(
+                     margin: const EdgeInsets.fromLTRB(20,0,20,0),                 
+                 decoration: BoxDecoration(border: Border.all(width: 3),
                                           borderRadius: BorderRadius.circular(15),
                                           
                                           
                   ),
+            child: Container(
+                 decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(15),
+                                            color: Colors.red,
+                                          
+                  ),
+                 
+   
             child: Row(
               
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -123,35 +129,35 @@ class _voletSalonState extends State<voletSalon> {
               children: [ 
               IconButton(icon: Icon(Icons.lightbulb), onPressed: () {  },
         ),
-                Expanded( 
-                  child: Text('Volet ${statusVolet['nom']} : ${statusVolet['status']!=true?'fermer':'ouvert'}',
+                  Expanded( 
+                    child: Text('Volet ${statusVolet['nom']} : ${statusVolet['status']!=true?'fermer':'ouvert'}',
            
-                        style: TextStyle(fontSize: 20,fontWeight: 
-                        FontWeight.w500,),),
-                ),
-                
-                     
-                  CupertinoSwitch(
+                          style: TextStyle(fontSize: 20,fontWeight: 
+                          FontWeight.w500,),),
+                  ),
+                  
+                       
+                    CupertinoSwitch(
   value:statusVolet['status'],
   onChanged: (value){
     setState(() {
 
 if(statusVolet['status']==true){
-                      FirebaseFirestore.instance.collection('Volet').
-                     doc(document.id)
-                    .update({
-                              "status": false
-                               })
-                    .then((value) => print("User Updated"))
-                    .catchError((error) => print("Failed to update user: $error"));}
-                    else{ FirebaseFirestore.instance.collection('Volet').
-                     doc(document.id)
-                    .update({
-                    "status": true
-                    })
-                    .then((value) => print("User Updated"))
-                    .catchError((error) => print("Failed to update user: $error"));}
-                                  
+                        FirebaseFirestore.instance.collection('Volet').
+                       doc(document.id)
+                      .update({
+                                "status": false
+                                 })
+                      .then((value) => print("User Updated"))
+                      .catchError((error) => print("Failed to update user: $error"));}
+                      else{ FirebaseFirestore.instance.collection('Volet').
+                       doc(document.id)
+                      .update({
+                      "status": true
+                      })
+                      .then((value) => print("User Updated"))
+                      .catchError((error) => print("Failed to update user: $error"));}
+                                    
 
 
     },
@@ -166,7 +172,8 @@ if(statusVolet['status']==true){
               
               ],
             ),
-          ), ),],
+          ),
+               ), SizedBox(height: 10,) ],
    
                 
                 
@@ -220,13 +227,17 @@ class _voletCuisineState extends State<voletCuisine> {
               child: Column(
                 children: [
             if(statusVolet['piece']=="cuisine")...[
-               Container(color: Colors.yellow,
-               child:  Container(
-                 margin: const EdgeInsets.all(20.0),
-                 
-                 decoration: BoxDecoration(border: Border.all(width: 2),
+                Container(
+                     margin: const EdgeInsets.fromLTRB(20,0,20,0),                 
+                 decoration: BoxDecoration(border: Border.all(width: 3),
                                           borderRadius: BorderRadius.circular(15),
                                           
+                                          
+                  ),
+            child: Container(
+                 decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(15),
+                                            color: Colors.grey,
                                           
                   ),
             child: Row(
@@ -280,9 +291,9 @@ if(statusVolet['status']==true){
               ],
             ),
           ),
-          ),
+          ),SizedBox(height: 10,)
           ],             
-                     ]                
+                    ]                
               ),
             );
           }).toList(),
@@ -333,16 +344,19 @@ if(statusVolet['piece']=="chambre")...[
 
                Column(
                  children: [
-                
-                   Container(color: Colors.green,
-                   child:  Container(
-                     margin: const EdgeInsets.all(20.0),
-                     
-                     decoration: BoxDecoration(border: Border.all(width: 2),
-                                              borderRadius: BorderRadius.circular(15),
-                                              
-                                              
-                      ),
+                 Container(
+                     margin: const EdgeInsets.fromLTRB(20,0,20,0),                 
+                 decoration: BoxDecoration(border: Border.all(width: 3),
+                                          borderRadius: BorderRadius.circular(15),
+                                          
+                                          
+                  ),
+            child: Container(
+                 decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(15),
+                                            color: Colors.blue,
+                                          
+                  ),
             child: Row(
               
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -394,7 +408,7 @@ if(statusVolet['status']==true){
               ],
             ),
           ), ),
-                 ],
+                 SizedBox(height: 10,)],
                )
 
 
@@ -458,13 +472,17 @@ class _voletGarageState extends State<voletGarage> {
                 children: [
                 
                   if(statusVolet['piece']=="garage")...[
-               Container(color: Colors.purple,
-               child:  Container(
-                 margin: const EdgeInsets.all(20.0),
-                 
-                 decoration: BoxDecoration(border: Border.all(width: 2),
+               Container(
+                     margin: const EdgeInsets.fromLTRB(20,0,20,0),                 
+                 decoration: BoxDecoration(border: Border.all(width: 3),
                                           borderRadius: BorderRadius.circular(15),
                                           
+                                          
+                  ),
+            child: Container(
+                 decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(15),
+                                            color: Colors.purple,
                                           
                   ),
             child: Row(
@@ -517,7 +535,7 @@ if(statusVolet['status']==true){
               
               ],
             ),
-          ), ),],
+          ), ),SizedBox(height: 10,)],
 
                   
                   

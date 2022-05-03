@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:smarthouse/Home/Led/addLed.dart';
 import 'package:smarthouse/Home/Volets/addVolet.dart';
 
-class deleteVolet extends StatefulWidget {
-  const deleteVolet({ Key? key }) : super(key: key);
+class optionVolet extends StatefulWidget {
+  const optionVolet({ Key? key }) : super(key: key);
 
   @override
-  State<deleteVolet> createState() => _deleteVoletState();
+  State<optionVolet> createState() => _optionVoletState();
 }
 
-class _deleteVoletState extends State<deleteVolet> {
+class _optionVoletState extends State<optionVolet> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -166,7 +166,7 @@ ElevatedButton(
   onPressed: () {
     Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => const deleteVolet()));
+    MaterialPageRoute(builder: (context) => const optionVolet()));
   
   },
   child: const Text('Suprimer'),

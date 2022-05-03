@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:smarthouse/Home/Led/optionLed.dart';
 
 
-class porteGarage extends StatefulWidget {
-  const porteGarage({ Key? key }) : super(key: key);
+class porteGarages extends StatefulWidget {
+  const porteGarages({ Key? key }) : super(key: key);
 
   @override
-  State<porteGarage> createState() => _porteGarageState();
+  State<porteGarages> createState() => _porteGaragesState();
 }
 
-class _porteGarageState extends State<porteGarage> {
+class _porteGaragesState extends State<porteGarages> {
    @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -2,14 +2,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:smarthouse/Home/Led/addLed.dart';
 
-class deleteLed extends StatefulWidget {
-  const deleteLed({ Key? key }) : super(key: key);
+class optionLed extends StatefulWidget {
+  const optionLed({ Key? key }) : super(key: key);
 
   @override
-  State<deleteLed> createState() => _deleteLedState();
+  State<optionLed> createState() => _optionLedState();
 }
 
-class _deleteLedState extends State<deleteLed> {
+class _optionLedState extends State<optionLed> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -130,7 +130,7 @@ class _modifierLedState extends State<modifierLed> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Option Capteur'),
+        title: const Text('Option Capteur Led'),
                    backgroundColor: Color.fromARGB(221, 23, 22, 22),
 
       ),
@@ -167,7 +167,7 @@ ElevatedButton(
   onPressed: () {
     Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => const deleteLed()));
+    MaterialPageRoute(builder: (context) => const optionLed()));
   
   },
   child: const Text('Suprimer'),

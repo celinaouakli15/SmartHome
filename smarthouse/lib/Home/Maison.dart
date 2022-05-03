@@ -3,6 +3,7 @@ import 'package:smarthouse/Home/Alarme/alarm.dart';
 import 'package:smarthouse/Home/Garage/porteGarage.dart';
 import 'package:smarthouse/Home/Led/allLed.dart';
 import 'package:smarthouse/Home/Led/addLed.dart';
+import 'package:smarthouse/Home/Porte/allPorte.dart';
 import 'package:smarthouse/Home/Temperature/allTemperature.dart';
 import 'package:smarthouse/Home/Volets/allVolet.dart';
 import 'package:smarthouse/Home/enConstruction.dart';
@@ -61,7 +62,7 @@ class _HomeState extends State<Home> {
                       categorie(context,"garage.png",direction: (){   
      Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => porteGarage()),
+    MaterialPageRoute(builder: (context) => porteGarages()),
   );} ),
                         
         ],
@@ -79,7 +80,7 @@ class _HomeState extends State<Home> {
                       categorie(context,"porte.png",direction: (){   
      Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) =>  construction()),
+    MaterialPageRoute(builder: (context) =>  allPorte()),
   );} ),
                         
         ],
