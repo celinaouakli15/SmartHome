@@ -20,7 +20,7 @@ class _allTemperatureState extends State<allTemperature> {
         title: Text("Température"),
        
  
-        
+        /*
         actions: [
        
          IconButton(
@@ -36,6 +36,7 @@ class _allTemperatureState extends State<allTemperature> {
         )
         
         ],
+        */
       ),
      
       body: SingleChildScrollView(

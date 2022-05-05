@@ -14,6 +14,8 @@ class _constructionState extends State<construction> {
       appBar: AppBar(
          title: Text("Bientot dans les bacs"),
      backgroundColor: Color.fromARGB(221, 23, 22, 22),
+
+   automaticallyImplyLeading: false, 
          
       ),
           body: Center(

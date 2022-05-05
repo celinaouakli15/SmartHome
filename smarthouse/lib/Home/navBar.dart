@@ -31,9 +31,10 @@ void ontapped(int index){
    automaticallyImplyLeading: false, 
      backgroundColor: Color.fromARGB(221, 23, 22, 22),
           actions: [
-          IconButton(
-            icon: Icon(Icons.menu), onPressed: () {  },
-        )],
+          //IconButton(
+           // icon: Icon(Icons.menu), onPressed: () {  },
+       // )
+        ],
       ),
           
       body: 
@@ -43,7 +44,7 @@ void ontapped(int index){
                  Home(),
                 donnees(),
                  room(),
-                 raccourcis(),
+               //  raccourcis(),
                  construction()
                  
                ],
@@ -72,12 +73,14 @@ void ontapped(int index){
               backgroundColor: Color.fromARGB(221, 16, 15, 15)
 ),             
 
-        
+     /*   
          BottomNavigationBarItem(
            icon: new Icon(Icons.play_circle),
            label: 'Raccourcis',
               backgroundColor: Color.fromARGB(221, 16, 15, 15)
-       ), BottomNavigationBarItem(
+       ),
+       */
+        BottomNavigationBarItem(
            icon: new Icon(Icons.settings),
            label: 'Parametre',
               backgroundColor: Color.fromARGB(221, 16, 15, 15)
