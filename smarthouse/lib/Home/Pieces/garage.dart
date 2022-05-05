@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:smarthouse/Home/Alarme/alarm.dart';
 import 'package:smarthouse/Home/Led/allLed.dart';
+import 'package:smarthouse/Home/Porte/allPorte.dart';
 import 'package:smarthouse/Home/Volets/allVolet.dart';
 
 class garage extends StatefulWidget {
@@ -25,8 +27,9 @@ class _garageState extends State<garage> {
                      crossAxisAlignment: CrossAxisAlignment.center,
                      children: [Text("LEDS"),
                        ledGarage(),
-                       Text("VOLETS"),voletGarage()
-
+                       Text("VOLETS"),voletGarage(),
+                        Text("Alarme"),alarmeGarage(),
+                         Text("Porte"),porteGarage()
                      ]
                      )
                      )
