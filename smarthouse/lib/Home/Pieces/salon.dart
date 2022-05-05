@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:smarthouse/Home/Alarme/alarm.dart';
 import 'package:smarthouse/Home/Led/allLed.dart';
+import 'package:smarthouse/Home/Porte/allPorte.dart';
 import 'package:smarthouse/Home/Volets/allVolet.dart';
 
 class salon extends StatefulWidget {
@@ -25,7 +27,12 @@ class _salonState extends State<salon> {
                      crossAxisAlignment: CrossAxisAlignment.center,
                      children: [Text("LEDS"),
                        ledSalon(),
-                       Text("VOLETS"),voletSalon()
+                       Text("VOLETS"),voletSalon(),
+                        Text("Alarme"),alarmeSalon(),
+                         Text("Porte"),porteSalon()
+                       
+
+                       
 
                      ]
                      )

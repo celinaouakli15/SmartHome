@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:smarthouse/Home/Alarme/alarm.dart';
 import 'package:smarthouse/Home/Led/allLed.dart';
+import 'package:smarthouse/Home/Porte/allPorte.dart';
 import 'package:smarthouse/Home/Volets/allVolet.dart';
 
 class chambre extends StatefulWidget {
@@ -26,8 +28,9 @@ class _chambreState extends State<chambre> {
                      crossAxisAlignment: CrossAxisAlignment.center,
                      children: [
                        Text("LEDS"),ledChambre(),
-                       Text("VOLETS"),voletChambre()
-                      
+                       Text("VOLETS"),voletChambre(),
+                      Text("Alarme"),alarmeChambre(),
+                         Text("Porte"),porteChambre()
 
                      ]
                      )

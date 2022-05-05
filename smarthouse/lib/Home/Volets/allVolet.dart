@@ -48,10 +48,11 @@ class _allVoletState extends State<allVolet> {
             
             mainAxisAlignment: MainAxisAlignment.center,
             children: [    
-               Text("SALON"),voletSalon(),
-                Text("CUISINE"),voletCuisine(),
-                 Text("CHAMBRE"),voletChambre(),
-                  Text("GARAGE"),voletGarage()
+              allOffVolet(),
+              voletSalon(),
+                voletCuisine(),
+                voletChambre(),
+                  voletGarage()
          
              
       
@@ -107,6 +108,7 @@ class _voletSalonState extends State<voletSalon> {
                 children: [
                 
                   if(statusVolet['piece']=="salon")...[
+                     Text('${statusVolet['piece']}',),
                   Container(
                      margin: const EdgeInsets.fromLTRB(20,0,20,0),                 
                  decoration: BoxDecoration(border: Border.all(width: 3),
@@ -227,6 +229,7 @@ class _voletCuisineState extends State<voletCuisine> {
               child: Column(
                 children: [
             if(statusVolet['piece']=="cuisine")...[
+                                Text('${statusVolet['piece']}',),
                 Container(
                      margin: const EdgeInsets.fromLTRB(20,0,20,0),                 
                  decoration: BoxDecoration(border: Border.all(width: 3),
@@ -341,6 +344,7 @@ class _voletChambreState extends State<voletChambre> {
                 children: [
                 
 if(statusVolet['piece']=="chambre")...[
+                    Text('${statusVolet['piece']}',),
 
                Column(
                  children: [
@@ -472,6 +476,7 @@ class _voletGarageState extends State<voletGarage> {
                 children: [
                 
                   if(statusVolet['piece']=="garage")...[
+                                      Text('${statusVolet['piece']}',),
                Container(
                      margin: const EdgeInsets.fromLTRB(20,0,20,0),                 
                  decoration: BoxDecoration(border: Border.all(width: 3),
@@ -556,3 +561,85 @@ if(statusVolet['status']==true){
   }
 }
 
+
+class allOffVolet extends StatefulWidget {
+  const allOffVolet({ Key? key }) : super(key: key);
+
+  @override
+  State<allOffVolet> createState() => _allOffVoletState();
+}
+
+class _allOffVoletState extends State<allOffVolet> {
+  List listId = [];
+  
+   Stream<QuerySnapshot> statusVolet = FirebaseFirestore.instance.collection('Volet').snapshots(includeMetadataChanges: true);
+
+  get allOnrue => null;
+  @override
+  Widget build(BuildContext context) {
+    return  StreamBuilder<QuerySnapshot>(
+      stream: statusVolet,
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return Text('Something went wrong');
+        }
+
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Text("Loading");
+        }
+
+        return Column(
+          
+          children: snapshot.data!.docs.map((DocumentSnapshot document) {
+                Map<String, dynamic> statusVolet = document.data()! as Map<String, dynamic>;
+               bool valeur = statusVolet['status'];
+         
+            listId.add(document.id);
+               bool allOff;
+                    var allOn;
+                   
+            return Container(
+              child: Column(
+                children: [
+                   if(document.id=="salon")...[
+                   
+                   RaisedButton(
+                     
+                     onPressed: (){
+               
+                
+                     for (var i = 0; i < listId.length; i++) {
+                       FirebaseFirestore.instance.collection('Volet').
+                     doc(listId[i])
+                    .update({'color': "noir",
+                              "status": false
+                               })
+                    .then((value) => print("User Updated"))
+                    .catchError((error) => print("Failed to update user: $error"));}
+                    if (statusVolet['status']==true) {
+                      allOff= true;
+                      allOn = allOff;
+
+                    }
+
+            },
+             child: Text('Tout éteindre',),
+             color: Colors.green,
+                
+            ),
+                
+         
+                
+                     ]]
+                  
+                
+                
+              ),
+            );
+          }).toList(),
+        );
+      },
+      
+    );
+  }
+}

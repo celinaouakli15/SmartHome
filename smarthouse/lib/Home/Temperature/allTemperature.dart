@@ -45,13 +45,11 @@ class _allTemperatureState extends State<allTemperature> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [   
              
-               Text("SALON"),
+               
                temperatureGlobal(),
                
             
-                Text("CUISINE"),
-                 Text("CHAMBRE"),
-                  Text("GARAGE"),
+              
          
              
       
@@ -95,80 +93,86 @@ class _temperatureGlobalState extends State<temperatureGlobal> {
           
          
            
-            return Container(
-              alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                     border: Border.all(width: 2,color: Color.fromARGB(255, 255, 255, 255)),
+            return Column(
+              children: [
+              
+                          Text("${tempsStatus['piece'].toString()} ",),
+                Container(
+                  alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                         border: Border.all(width: 2,color: Color.fromARGB(255, 255, 255, 255)),
    
-                    shape: BoxShape.rectangle,
-                    
-                    borderRadius: BorderRadius.circular(30),
-                      color:Color.fromARGB(255, 159, 119, 51),
-                      ),
-                   width:(MediaQuery.of(context).size.width)-100 ,
-              child: Column(
-                children: [
-
-                    Text("Température degres",
-                       style: TextStyle(
-                         fontSize: 20,
-                         fontFamily: "Popins",
-                         color: Color.fromARGB(255, 255, 255, 255),
-                         
-                         
-                          ),),
-                       Text("${tempsStatus['temperature_c']} °C",
-                       style: TextStyle(
-                         fontSize: 90,
-                         fontFamily: "Popins",
-                         color: Color.fromARGB(255, 255, 255, 255),
-                         
-                         
+                        shape: BoxShape.rectangle,
+                        
+                        borderRadius: BorderRadius.circular(30),
+                          color:Color.fromARGB(255, 159, 119, 51),
                           ),
-                          textAlign: TextAlign.center,),
+                       width:(MediaQuery.of(context).size.width)-100 ,
+                  child: Column(
+                    children: [
+
+                        Text("Température degres",
+                           style: TextStyle(
+                             fontSize: 20,
+                             fontFamily: "Popins",
+                             color: Color.fromARGB(255, 255, 255, 255),
+                             
+                             
+                              ),),
+                           Text("${tempsStatus['temperature_c']} °C",
+                           style: TextStyle(
+                             fontSize: 90,
+                             fontFamily: "Popins",
+                             color: Color.fromARGB(255, 255, 255, 255),
+                             
+                             
+                              ),
+                              textAlign: TextAlign.center,),
 
 
 
-                    Text("Température f",
-                       style: TextStyle(
-                         fontSize: 20,
-                         fontFamily: "Popins",
-                         color: Color.fromARGB(255, 255, 255, 255),
-                         
-                         
-                          ),),
-                       Text("${tempsStatus['temperature_f']}",
-                       style: TextStyle(
-                         fontSize: 90,
-                         fontFamily: "Popins",
-                         color: Color.fromARGB(255, 255, 255, 255),
-                         
-                         
-                          ),
-                          textAlign: TextAlign.center,),
-                          Text("Humidité",
-                       style: TextStyle(
-                         fontSize: 20,
-                         fontFamily: "Popins",
-                         color: Color.fromARGB(255, 255, 255, 255),
-                         
-                         
-                          ),),
-                       Text("${tempsStatus['humidity']}",
-                       style: TextStyle(
-                         fontSize: 90,
-                         fontFamily: "Popins",
-                         color: Color.fromARGB(255, 255, 255, 255),
-                         
-                         
-                          ),
-                          textAlign: TextAlign.center,),
-                          
+                        Text("Température f",
+                           style: TextStyle(
+                             fontSize: 20,
+                             fontFamily: "Popins",
+                             color: Color.fromARGB(255, 255, 255, 255),
+                             
+                             
+                              ),),
+                           Text("${tempsStatus['temperature_f']}",
+                           style: TextStyle(
+                             fontSize: 90,
+                             fontFamily: "Popins",
+                             color: Color.fromARGB(255, 255, 255, 255),
+                             
+                             
+                              ),
+                              textAlign: TextAlign.center,),
+                              Text("Humidité",
+                           style: TextStyle(
+                             fontSize: 20,
+                             fontFamily: "Popins",
+                             color: Color.fromARGB(255, 255, 255, 255),
+                             
+                             
+                              ),),
+                           Text("${tempsStatus['humidity']}",
+                           style: TextStyle(
+                             fontSize: 90,
+                             fontFamily: "Popins",
+                             color: Color.fromARGB(255, 255, 255, 255),
+                             
+                             
+                              ),
+                              textAlign: TextAlign.center,),
+                              
        ]
-                  
-                
-                
-              ),
+                      
+                    
+                    
+                  ),
+                ),
+              ],
             );
           }).toList(),
         );

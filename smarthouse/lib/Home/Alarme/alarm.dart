@@ -45,12 +45,12 @@ class _allAlarmeState extends State<allAlarme> {
           child: Column(
             
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [ 
-               Text("Tout Eteindre"),
-               Text("SALON"),alarmeSalon(),
-                Text("CUISINE"),alarmeCuisine(),
-                 Text("CHAMBRE"),alarmeChambre(),
-                Text("GARAGE"),alarmeGarage()
+            children: [  allOffAlarm(),
+               alarmeSalon(),
+               alarmeCuisine(),
+               alarmeChambre(),
+               alarmeGarage(),
+              
          
              
       
@@ -103,6 +103,7 @@ class _alarmeSalonState extends State<alarmeSalon> {
                 children: [
                       
                   if(statusAlarme['piece']=="salon")...[
+                     Text("SALON"),
             Container(
                      margin: const EdgeInsets.fromLTRB(20,0,20,0),                 
                  decoration: BoxDecoration(border: Border.all(width: 3),
@@ -228,6 +229,7 @@ class _alarmeCuisineState extends State<alarmeCuisine> {
               child: Column(
                 children: [
             if(statusAlarme['piece']=="cuisine")...[
+               Text("CUISINE"),
              Container(
                      margin: const EdgeInsets.fromLTRB(20,0,20,0),                 
                  decoration: BoxDecoration(border: Border.all(width: 3),
@@ -348,6 +350,7 @@ class _alarmeChambreState extends State<alarmeChambre> {
                 children: [
                 
 if(statusAlarme['piece']=="chambre")...[
+   Text("CHAMBRE"),
 
                Column(
                  children: [
@@ -481,8 +484,9 @@ class _alarmeGarageState extends State<alarmeGarage> {
                 children: [
                 
                   if(statusAlarme['piece']=="garage")...[
+                     Text("GARAGE"),
                Container(
-                 margin: const EdgeInsets.all(20.0),
+                     margin: const EdgeInsets.fromLTRB(20,0,20,0),
                  
                  decoration: BoxDecoration(border: Border.all(width: 2),
                                           borderRadius: BorderRadius.circular(15),
@@ -568,3 +572,85 @@ if(statusAlarme['status']==true){
 }
 
 
+
+class allOffAlarm extends StatefulWidget {
+  const allOffAlarm({ Key? key }) : super(key: key);
+
+  @override
+  State<allOffAlarm> createState() => _allOffAlarmState();
+}
+
+class _allOffAlarmState extends State<allOffAlarm> {
+  List listId = [];
+  
+   Stream<QuerySnapshot> statusAlarm = FirebaseFirestore.instance.collection('alarm').snapshots(includeMetadataChanges: true);
+
+  get allOnrue => null;
+  @override
+  Widget build(BuildContext context) {
+    return  StreamBuilder<QuerySnapshot>(
+      stream: statusAlarm,
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return Text('Something went wrong');
+        }
+
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Text("Loading");
+        }
+
+        return Column(
+          
+          children: snapshot.data!.docs.map((DocumentSnapshot document) {
+                Map<String, dynamic> ledStatus = document.data()! as Map<String, dynamic>;
+               bool valeur = ledStatus['status'];
+         
+            listId.add(document.id);
+               bool allOff;
+                    var allOn;
+                   
+            return Container(
+              child: Column(
+                children: [
+                   if(document.id=="alarm1")...[
+                    Text('Tout Éteindre'),
+                   RaisedButton(
+                     
+                     onPressed: (){
+               
+                
+                     for (var i = 0; i < listId.length; i++) {
+                       FirebaseFirestore.instance.collection('alarm').
+                     doc(listId[i])
+                    .update({'color': "noir",
+                              "status": false
+                               })
+                    .then((value) => print("User Updated"))
+                    .catchError((error) => print("Failed to update user: $error"));}
+                    if (ledStatus['status']==true) {
+                      allOff= true;
+                      allOn = allOff;
+
+                    }
+
+            },
+             child: Text('Tout éteindre',),
+             color: Colors.green,
+                
+            ),
+                
+         
+                
+                     ]]
+                  
+                
+                
+              ),
+            );
+          }).toList(),
+        );
+      },
+      
+    );
+  }
+}

@@ -78,6 +78,7 @@ class ledSalon extends StatefulWidget {
 
 class _ledSalonState extends State<ledSalon> {
 int i = 0;
+ List listId = [];
 compteur(i){
 
   i= 0;
@@ -96,36 +97,27 @@ compteur(i){
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Text("Loading");
         }
-
+   i++;
         return Column(
           
           children: snapshot.data!.docs.map((DocumentSnapshot document) {
                 Map<String, dynamic> ledStatus = document.data()! as Map<String, dynamic>;
                bool valeur = ledStatus['status'];
+         listId.add(document.id);
+          
        
-           i =1;
-        compteur(i);
       
-         
+         print((((listId.length)/i)).toString());
             return Container(
               child: Column(
-                children: [ if(i==1)...[
-                          Text("Salon"),
-                             
-                             ],
-
-
-                         if(ledStatus['piece']=="salon")...[
-                        Column(children: [ 
-                             
-                             ],)
+                children: [ 
   
                           
                 
 
-                         ],
+                         
                   if(ledStatus['piece']=="salon")...[
-                  
+                   Text("Salon"),
                   
             Container(
                      margin: const EdgeInsets.fromLTRB(20,0,20,0),                 
@@ -255,14 +247,12 @@ int i = 0;
             return Container(
               child: Column(
                 children: [
-                  if(i==1)...[
-                          Text("Cuisine"),
-                             
-                             ],
+               
 
 
 
             if(ledStatus['piece']=="cuisine")...[
+                  Text("Cuisine"),
              Container(
                      margin: const EdgeInsets.fromLTRB(20,0,20,0),                 
                  decoration: BoxDecoration(border: Border.all(width: 3),
@@ -387,7 +377,7 @@ if(ledStatus['piece']=="chambre")...[
 
                Column(
                  children: [
-                
+                 Text("Chambre"),
                     Container(
                      margin: const EdgeInsets.fromLTRB(20,0,20,0),
                      
@@ -515,10 +505,11 @@ class _ledGarageState extends State<ledGarage> {
             return Container(
               child: Column(
                 children: [
-                
+          
                   if(ledStatus['piece']=="garage")...[
+                           Text("Garage"),
                Container(
-                 margin: const EdgeInsets.all(20.0),
+                 margin: EdgeInsets.fromLTRB(20, 0, 20, 0)  , //EdgeInsets.all(20.0),
                  
                  decoration: BoxDecoration(border: Border.all(width: 2),
                                           borderRadius: BorderRadius.circular(15),

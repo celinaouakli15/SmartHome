@@ -1,10 +1,11 @@
 
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:smarthouse/Home/navBar.dart';
-import 'package:smarthouse/Home/Led/addLed.dart';
 
 
 
@@ -196,11 +197,11 @@ class _voletState extends State<volet> {
       stream: statusVolet,
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
-          return Text('Something went wrong');
+          return const Text('Something went wrong');
         }
 
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Text("Loading");
+          return const Text("Loading");
         }
 
         return Column(
