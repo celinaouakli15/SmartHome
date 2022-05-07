@@ -34,7 +34,7 @@ def tempHumi():
         humidity = "{}% ".format(humidity)
         info = {'temperature_c' : celsius , 'temperature_f': fahrenheit, 'humidity':humidity}
         print(info)
-        setData(info)
+        setData(info)  # envoyer à la db les infos
         print(
             "Temp: {:.1f} F / {:.1f} C    Humidity: {}% ".format(
                 temperature_f, temperature_c, humidity
