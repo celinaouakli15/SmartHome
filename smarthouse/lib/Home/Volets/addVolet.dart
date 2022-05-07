@@ -72,10 +72,11 @@ ElevatedButton(
    print(alors);
   
    
-   
-    if(pieceController!="" && nameController!=""){ 
+   if(pieceController!="" && nameController!=""){ 
       FirebaseFirestore.instance.collection('Volet').
-    add({
+      doc(nameController.value.text).
+      set
+    ({
       'nom': nameController.value.text ,
       'status': false,
       'piece':alors,

@@ -350,18 +350,11 @@ PODS:
     - Flutter
   - Firebase/CoreOnly (8.14.0):
     - FirebaseCore (= 8.14.0)
-  - Firebase/Database (8.14.0):
-    - Firebase/CoreOnly
-    - FirebaseDatabase (~> 8.14.0)
   - Firebase/Firestore (8.14.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 8.14.0)
   - firebase_core (1.14.1):
     - Firebase/CoreOnly (= 8.14.0)
-    - Flutter
-  - firebase_database (9.0.11):
-    - Firebase/Database (= 8.14.0)
-    - firebase_core
     - Flutter
   - FirebaseCore (8.14.0):
     - FirebaseCoreDiagnostics (~> 8.0)
@@ -372,9 +365,6 @@ PODS:
     - GoogleUtilities/Environment (~> 7.7)
     - GoogleUtilities/Logger (~> 7.7)
     - nanopb (~> 2.30908.0)
-  - FirebaseDatabase (8.14.0):
-    - FirebaseCore (~> 8.0)
-    - leveldb-library (~> 1.22)
   - FirebaseFirestore (8.14.0):
     - abseil/algorithm (= 0.20200225.0)
     - abseil/base (= 0.20200225.0)
@@ -434,7 +424,6 @@ PODS:
 DEPENDENCIES:
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
-  - firebase_database (from `.symlinks/plugins/firebase_database/ios`)
   - Flutter (from `Flutter`)
   - flutter_native_splash (from `.symlinks/plugins/flutter_native_splash/ios`)
 
@@ -445,7 +434,6 @@ SPEC REPOS:
     - Firebase
     - FirebaseCore
     - FirebaseCoreDiagnostics
-    - FirebaseDatabase
     - FirebaseFirestore
     - GoogleDataTransport
     - GoogleUtilities
@@ -460,8 +448,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/cloud_firestore/ios"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
-  firebase_database:
-    :path: ".symlinks/plugins/firebase_database/ios"
   Flutter:
     :path: Flutter
   flutter_native_splash:
@@ -473,10 +459,8 @@ SPEC CHECKSUMS:
   cloud_firestore: 6894050fe57f80e72d84d5d6c57392f3d1615c19
   Firebase: 7e8fe528c161b9271d365217a74c16aaf834578e
   firebase_core: cdef02fcf55872191eb0568d4c31a7a700e38582
-  firebase_database: 48b46c2d73ad0b85a1d8a35a66a9af62c8cb4d46
   FirebaseCore: b84a44ee7ba999e0f9f76d198a9c7f60a797b848
   FirebaseCoreDiagnostics: 92e07a649aeb66352b319d43bdd2ee3942af84cb
-  FirebaseDatabase: 8bfbe7bb8d355f9727507bcf4a2116cb3aabdc5e
   FirebaseFirestore: fff37682b934e3e94d83e5c24936721890a2edf0
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
   flutter_native_splash: 52501b97d1c0a5f898d687f1646226c1f93c56ef

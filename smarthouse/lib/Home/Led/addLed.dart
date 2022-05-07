@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:multiselect/multiselect.dart';
 
 class addLed extends StatefulWidget {
@@ -77,7 +76,9 @@ ElevatedButton(
    
     if(pieceController!="" && nameController!=""){ 
       FirebaseFirestore.instance.collection('Led').
-    add({
+      doc(nameController.value.text).
+      set
+    ({
       'nom': nameController.value.text ,
       'status': false,
       'piece':alors,
@@ -85,8 +86,6 @@ ElevatedButton(
     });
     Navigator.pop(context);
     }
-
-    Text(" c   a mArCh    e   pPOs");
    
   },
   child: const Text('Ajouter'),

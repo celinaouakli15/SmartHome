@@ -23,21 +23,12 @@ class _donneesState extends State<donnees> {
           child: Column(
             
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [   
-             
-           
-              
-              
-            
- 
+            children: [ 
                 nbrLed(),
                 nbrVolet(),
-           
-           nbrPorte(),
-           nbrAlarme(),
-              temperatureGlobal(),
-      
-          
+                nbrPorte(),
+                nbrAlarme(),
+                temperatureGlobal(),
         ],
         ),
         ),

@@ -72,10 +72,11 @@ ElevatedButton(
    print(alors);
   
    
-   
-    if(pieceController!="" && nameController!=""){ 
+   if(pieceController!="" && nameController!=""){ 
       FirebaseFirestore.instance.collection('alarm').
-    add({
+      doc(nameController.value.text).
+      set
+    ({
       'nom': nameController.value.text ,
       'status': false,
       'piece':alors,
@@ -84,7 +85,7 @@ ElevatedButton(
     Navigator.pop(context);
     }
 
-    Text(" c   a mArCh    e   pPOs");
+  
    
   },
   child: const Text('Ajouter'),

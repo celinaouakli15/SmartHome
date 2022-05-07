@@ -4,12 +4,12 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:smarthouse/Home/navBar.dart';
+import 'package:smarthouse/Simulation.dart';
 
 
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const MyApp());
@@ -42,12 +42,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 
-Future<String> getEmail() async {
-
-  String result = (await FirebaseDatabase.instance.reference().child("rules/.read").once()).toString();
-  print(result);
-  return result.toString();
-}
 class _MyHomePageState extends State<MyHomePage> {
 
   @override
@@ -79,6 +73,16 @@ class _MyHomePageState extends State<MyHomePage> {
    
 
 }, child: Text("Commencer")),
+ ElevatedButton(
+  
+  onPressed: (){
+   
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => simulation()));
+   
+
+}, child: Text("Simulation")),
              
               
               ],),),
@@ -109,7 +113,6 @@ class _ledState extends State<led> {
    Stream<QuerySnapshot> statusVolet = FirebaseFirestore.instance.collection('Volet').snapshots(includeMetadataChanges: true);
  
    Stream<QuerySnapshot> statusLed = FirebaseFirestore.instance.collection('Led').snapshots(includeMetadataChanges: true);
-  DatabaseReference ref = FirebaseDatabase.instance.ref("volet");
   @override
   Widget build(BuildContext context) {
     return  StreamBuilder<QuerySnapshot>(
@@ -128,13 +131,8 @@ class _ledState extends State<led> {
           children: snapshot.data!.docs.map((DocumentSnapshot document) {
                 Map<String, dynamic> ledStatus = document.data()! as Map<String, dynamic>;
                
-          Stream<DatabaseEvent> stream = ref.onValue;
 
-// Subscribe to the stream!
-stream.listen((DatabaseEvent event) {
-  print('Event Type: ${event.type}'); // DatabaseEventType.value;
-  print('Snapshot: ${event.snapshot}'); // DataSnapshot
-});
+
            
            
             return Container(
@@ -308,7 +306,9 @@ class _temperatureState extends State<temperature> {
            
             return Container(
               child: Column(
-                children: [Container(
+                children: [
+                  
+                      Container(
                  child:Text(statustemps['temperature_c'].toString()) ,
                   ),
                   Container(
