@@ -229,7 +229,8 @@ class _ledGarageState extends State<ledGarage> {
                      Text('status : ${ledStatus['status']!=true?'off':'on'}'),
                     Text('nom : ${ledStatus['nom']}'),
                      Text('piece : ${ledStatus['piece']}'),
-         SizedBox(height: 50,)],
+         SizedBox(height: 50,)
+         ],
   
                                 
                

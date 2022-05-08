@@ -44,74 +44,13 @@ class _voletSalonState extends State<voletSalon> {
                 children: [
                 
                   if(statusVolet['piece']=="salon")...[
-                     Text('${statusVolet['piece']}',),
-                  Container(
-                     margin: const EdgeInsets.fromLTRB(20,0,20,0),                 
-                 decoration: BoxDecoration(border: Border.all(width: 3),
-                                          borderRadius: BorderRadius.circular(15),
-                                          
-                                          
-                  ),
-            child: Container(
-                 decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(15),
-                                            color: Colors.red,
-                                          
-                  ),
-                 
-   
-            child: Row(
               
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        
-              children: [ 
-              IconButton(icon: Icon(Icons.lightbulb), onPressed: () {  },
-        ),
-                  Expanded( 
-                    child: Text('Volet ${statusVolet['nom']} : ${statusVolet['status']!=true?'fermer':'ouvert'}',
-           
-                          style: TextStyle(fontSize: 20,fontWeight: 
-                          FontWeight.w500,),),
-                  ),
-                  
-                       
-                    CupertinoSwitch(
-  value:statusVolet['status'],
-  onChanged: (value){
-    setState(() {
 
-if(statusVolet['status']==true){
-                        FirebaseFirestore.instance.collection('Volet').
-                       doc(document.id)
-                      .update({
-                                "status": false
-                                 })
-                      .then((value) => print("User Updated"))
-                      .catchError((error) => print("Failed to update user: $error"));}
-                      else{ FirebaseFirestore.instance.collection('Volet').
-                       doc(document.id)
-                      .update({
-                      "status": true
-                      })
-                      .then((value) => print("User Updated"))
-                      .catchError((error) => print("Failed to update user: $error"));}
-                                    
-
-
-    },
-    );
-  },                          
-  thumbColor: Color.fromARGB(255, 255, 255, 255),
-  activeColor: Colors.green,
-  trackColor: Colors.orange,
-
-
-),
-              
-              ],
-            ),
-          ),
-               ), SizedBox(height: 10,) ],
+                             Text('status : ${statusVolet['status']!=true?'off':'on'}'),
+                    Text('nom : ${statusVolet['nom']}'),
+                     Text('piece : ${statusVolet['piece']}'),
+         SizedBox(height: 50,),
+                ],
    
                 
                 
@@ -164,74 +103,14 @@ class _voletCuisineState extends State<voletCuisine> {
             return Container(
               child: Column(
                 children: [
-            if(statusVolet['piece']=="cuisine")...[
-                                Text('${statusVolet['piece']}',),
-                Container(
-                     margin: const EdgeInsets.fromLTRB(20,0,20,0),                 
-                 decoration: BoxDecoration(border: Border.all(width: 3),
-                                          borderRadius: BorderRadius.circular(15),
-                                          
-                                          
-                  ),
-            child: Container(
-                 decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(15),
-                                            color: Colors.grey,
-                                          
-                  ),
-            child: Row(
-              
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        
-              children: [ 
-              IconButton(icon: Icon(Icons.lightbulb), onPressed: () {  },
-        ),
-                Expanded( 
-                  child: Text('Volet ${statusVolet['nom']} : ${statusVolet['status']!=true?'fermer':'ouvert'}',
-           
-                        style: TextStyle(fontSize: 20,fontWeight: 
-                        FontWeight.w500,),),
-                ),
-                
-                     
-                  CupertinoSwitch(
-  value:statusVolet['status'],
-  onChanged: (value){
-    setState(() {
+                  if(statusVolet['piece']=="cuisine")...[
+                   
 
-if(statusVolet['status']==true){
-                      FirebaseFirestore.instance.collection('Volet').
-                     doc(document.id)
-                    .update({
-                              "status": false
-                               })
-                    .then((value) => print("User Updated"))
-                    .catchError((error) => print("Failed to update user: $error"));}
-                    else{ FirebaseFirestore.instance.collection('Volet').
-                     doc(document.id)
-                    .update({
-                    "status": true
-                    })
-                    .then((value) => print("User Updated"))
-                    .catchError((error) => print("Failed to update user: $error"));}
-                                  
-
-
-    },
-    );
-  },                          
-  thumbColor: Color.fromARGB(255, 255, 255, 255),
-  activeColor: Colors.green,
-  trackColor: Colors.orange,
-
-
-),
-              
-              ],
-            ),
-          ),
-          ),SizedBox(height: 10,)
-          ],             
+                             Text('status : ${statusVolet['status']!=true?'off':'on'}'),
+                    Text('nom : ${statusVolet['nom']}'),
+                     Text('piece : ${statusVolet['piece']}'),
+         SizedBox(height: 50,),
+                ],
                     ]                
               ),
             );
@@ -278,85 +157,15 @@ class _voletChambreState extends State<voletChambre> {
             return Container(
               child: Column(
                 children: [
-                
-if(statusVolet['piece']=="chambre")...[
-                    Text('${statusVolet['piece']}',),
-
-               Column(
-                 children: [
-                 Container(
-                     margin: const EdgeInsets.fromLTRB(20,0,20,0),                 
-                 decoration: BoxDecoration(border: Border.all(width: 3),
-                                          borderRadius: BorderRadius.circular(15),
-                                          
-                                          
-                  ),
-            child: Container(
-                 decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(15),
-                                            color: Colors.blue,
-                                          
-                  ),
-            child: Row(
+    
+                  if(statusVolet['piece']=="chambre")...[
               
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        
-              children: [ 
-              IconButton(icon: Icon(Icons.lightbulb), onPressed: () {  },
-        ),
-                    Expanded( 
-                  child: Text('Volet ${statusVolet['nom']} : ${statusVolet['status']!=true?'fermer':'ouvert'}',
-           
-                            style: TextStyle(fontSize: 20,fontWeight: 
-                            FontWeight.w500,),),
-                    ),
-                    
-                         
-                      CupertinoSwitch(
-  value:statusVolet['status'],
-  onChanged: (value){
-    setState(() {
 
-if(statusVolet['status']==true){
-                          FirebaseFirestore.instance.collection('Volet').
-                         doc(document.id)
-                        .update({
-                                  "status": false
-                                   })
-                        .then((value) => print("User Updated"))
-                        .catchError((error) => print("Failed to update user: $error"));}
-                        else{ FirebaseFirestore.instance.collection('Volet').
-                         doc(document.id)
-                        .update({
-                        "status": true
-                        })
-                        .then((value) => print("User Updated"))
-                        .catchError((error) => print("Failed to update user: $error"));}
-                                      
-
-
-    },
-    );
-  },                          
-  thumbColor: Color.fromARGB(255, 255, 255, 255),
-  activeColor: Colors.green,
-  trackColor: Colors.orange,
-
-
-),
-              
-              ],
-            ),
-          ), ),
-                 SizedBox(height: 10,)],
-               )
-
-
-
-
-                ],
-                           
-                  
+                             Text('status : ${statusVolet['status']!=true?'off':'on'}'),
+                    Text('nom : ${statusVolet['nom']}'),
+                     Text('piece : ${statusVolet['piece']}'),
+         SizedBox(height: 50,),
+                ],            
                   
      
                     
@@ -410,75 +219,15 @@ class _voletGarageState extends State<voletGarage> {
             return Container(
               child: Column(
                 children: [
-                
+                 
                   if(statusVolet['piece']=="garage")...[
-                                      Text('${statusVolet['piece']}',),
-               Container(
-                     margin: const EdgeInsets.fromLTRB(20,0,20,0),                 
-                 decoration: BoxDecoration(border: Border.all(width: 3),
-                                          borderRadius: BorderRadius.circular(15),
-                                          
-                                          
-                  ),
-            child: Container(
-                 decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(15),
-                                            color: Colors.purple,
-                                          
-                  ),
-            child: Row(
               
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        
-              children: [ 
-              IconButton(icon: Icon(Icons.lightbulb), onPressed: () {  },
-        ),
-                Expanded( 
-                  child: Text('Volet ${statusVolet['nom']} : ${statusVolet['status']!=true?'fermer':'ouvert'}',
-           
-                        style: TextStyle(fontSize: 20,fontWeight: 
-                        FontWeight.w500,),),
-                ),
-                
-                     
-                  CupertinoSwitch(
-  value:statusVolet['status'],
-  onChanged: (value){
-    setState(() {
 
-if(statusVolet['status']==true){
-                      FirebaseFirestore.instance.collection('Volet').
-                     doc(document.id)
-                    .update({
-                              "status": false
-                               })
-                    .then((value) => print("User Updated"))
-                    .catchError((error) => print("Failed to update user: $error"));}
-                    else{ FirebaseFirestore.instance.collection('Volet').
-                     doc(document.id)
-                    .update({
-                    "status": true
-                    })
-                    .then((value) => print("User Updated"))
-                    .catchError((error) => print("Failed to update user: $error"));}
-                                  
-
-
-    },
-    );
-  },                          
-  thumbColor: Color.fromARGB(255, 255, 255, 255),
-  activeColor: Colors.green,
-  trackColor: Colors.orange,
-
-
-),
-              
-              ],
-            ),
-          ), ),SizedBox(height: 10,)],
-
-                  
+                             Text('status : ${statusVolet['status']!=true?'off':'on'}'),
+                    Text('nom : ${statusVolet['nom']}'),
+                     Text('piece : ${statusVolet['piece']}'),
+         SizedBox(height: 50,),
+                ], 
                   
      
                     

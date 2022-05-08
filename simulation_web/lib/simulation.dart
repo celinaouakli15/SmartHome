@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:simulation_web/Piece/allAlarme.dart';
 import 'package:simulation_web/Piece/allLed.dart';
+import 'package:simulation_web/Piece/allPorte.dart';
+import 'package:simulation_web/Piece/allVolet.dart';
 
 class simulation extends StatefulWidget {
   const simulation({ Key? key }) : super(key: key);
@@ -39,8 +42,12 @@ class _simulationState extends State<simulation> {
                      children: [
                        Text("Salon"), 
                        SizedBox(height: 50,),
-
+                        Text("Led"),
                        ledSalon(),
+                         Text("Volet"),
+                       voletSalon(),
+                           Text("Alarme"),alarmeSalon(), 
+                           Text("Porte"),porteSalon()
                      ],
                    ),
                    SizedBox(width: 100,),
@@ -49,8 +56,11 @@ class _simulationState extends State<simulation> {
                      children: [
                        Text("Cuisine"), 
                        SizedBox(height: 50,),
-                       
+                       Text("Led"),
                        ledCuisine(),
+                       Text("Volet"),voletCuisine(),
+                       Text("Alarme"),alarmeCuisine(),
+                       Text("Porte"),porteCuisine()
                        
                      ],
                    ),
@@ -60,7 +70,14 @@ class _simulationState extends State<simulation> {
                      children: [
                        Text("Garage"), 
                        SizedBox(height: 50,),
+                        Text("Led"),
                        ledGarage(),
+                       Text("Volet"),
+                       voletGarage(),
+                       
+                       Text("Alarme"),
+                       alarmeGarage(),
+                       Text("Porte"),porteGarage()
                      ],
                    ),
                    SizedBox(width: 100,),
@@ -69,13 +86,19 @@ class _simulationState extends State<simulation> {
                      children: [
                        Text("Chambre"), 
                        SizedBox(height: 50,),
+                        Text("Led"),
                        ledChambre(),
+                       Text("Volet"),voletChambre(),
+
+                       Text("Alarme"),
+                       alarmeChambre(),
+                       Text("Porte"),porteChambre()
                      ],
                    ),
 ],
                  ),
                      
-                                 simulationtherm()
+                            
 
                  ])))
       

@@ -24,6 +24,7 @@ class _donneesState extends State<donnees> {
             
             mainAxisAlignment: MainAxisAlignment.center,
             children: [ 
+       
                 nbrLed(),
                 nbrVolet(),
                 nbrPorte(),
@@ -425,6 +426,113 @@ print(listId.length);
              Expanded( 
                     child:
                 Text('Nombre de Alarme :',
+           
+                            style: TextStyle(fontSize: 20,fontWeight: 
+                            FontWeight.w500,),),),
+                  
+
+
+                  Text(((listId.length+1)/i).toString(),
+           
+                            style: TextStyle(fontSize: 20,fontWeight: 
+                            FontWeight.w500,),),
+                            SizedBox(width: 10,),
+                  
+                     ],
+                     
+                     
+                     ),
+                   ),
+                    
+                     ]]
+                  
+                       
+                
+              ),
+            );
+          }).toList(),
+        );
+      },
+      
+    );
+  }
+}
+
+
+class dddd extends StatefulWidget {
+  const dddd({ Key? key }) : super(key: key);
+
+  @override
+  State<dddd> createState() => _ddddState();
+}
+
+class _ddddState extends State<dddd> {
+  List listId = [];
+  List listOffLed = [];
+  List listOnLed = [];
+  int i= 0;
+   Stream<QuerySnapshot> statusLed = FirebaseFirestore.instance.collection('Volet').snapshots(includeMetadataChanges: true);
+
+  @override
+  Widget build(BuildContext context) {
+    return  StreamBuilder<QuerySnapshot>(
+      
+      stream: statusLed,
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return Text('Something went wrong');
+        }
+
+        if (snapshot.connectionState == ConnectionState.waiting) {
+         
+          return Text("Loading");
+        }
+         i++;
+          print(i.toString());
+
+        return Column(
+          
+          children: snapshot.data!.docs.map((DocumentSnapshot document) {
+                Map<String, dynamic> ledStatus = document.data()! as Map<String, dynamic>;
+               bool valeur = ledStatus['status'];
+         
+            
+               bool allOff;
+                    var allOn;
+                   listId.add(document.id);
+if (ledStatus['status']== true && (((listId.length+1)/i)< listOnLed.length)) {
+  listOnLed.add(document.id);
+}
+
+if (ledStatus['status']== false) {
+  listOffLed.add(document.id);
+}
+print("off:");
+print(listOffLed.length);
+print("list id");
+print(listId.length);
+
+            return Container(
+             
+              child: Column(
+                children: [
+                   if(document.id=="salon")...[
+                   Container(
+                      margin: const EdgeInsets.all(20.0),
+                 
+                 decoration: BoxDecoration(border: Border.all(width: 2),
+                                          borderRadius: BorderRadius.circular(15),
+                                          
+                                          color: Colors.grey,
+                  ),
+                     child: Row(
+                       
+                       
+                       children: [
+                         SizedBox(width: 10,),
+             Expanded( 
+                    child:
+                Text('Nombre de Volet :',
            
                             style: TextStyle(fontSize: 20,fontWeight: 
                             FontWeight.w500,),),),

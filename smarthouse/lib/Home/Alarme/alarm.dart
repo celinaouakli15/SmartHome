@@ -251,7 +251,7 @@ class _alarmeCuisineState extends State<alarmeCuisine> {
                 IconButton(icon: Icon(Icons.lightbulb), onPressed: () {  },
         ),
                   Expanded( 
-                    child: Text('Led ${statusAlarme['nom']} : ${statusAlarme['status']!=true?'off':'on'}',
+                    child: Text('Alarme ${statusAlarme['nom']} : ${statusAlarme['status']!=true?'off':'on'}',
            
                           style: TextStyle(fontSize: 20,fontWeight: 
                           FontWeight.w500,),),
@@ -377,7 +377,7 @@ if(statusAlarme['piece']=="chambre")...[
                 IconButton(icon: Icon(Icons.lightbulb), onPressed: () {  },
         ),
                       Expanded( 
-                        child: Text('Led ${statusAlarme['nom']} : ${statusAlarme['status']!=true?'off':'on'}',
+                        child: Text('Alarme ${statusAlarme['nom']} : ${statusAlarme['status']!=true?'off':'on'}',
            
                               style: TextStyle(fontSize: 20,fontWeight: 
                               FontWeight.w500,),),
@@ -507,7 +507,7 @@ class _alarmeGarageState extends State<alarmeGarage> {
                 IconButton(icon: Icon(Icons.lightbulb), onPressed: () {  },
         ),
                   Expanded( 
-                    child: Text('Led ${statusAlarme['nom']} : ${statusAlarme['status']!=true?'off':'on'}',
+                    child: Text('Alarme ${statusAlarme['nom']} : ${statusAlarme['status']!=true?'off':'on'}',
            
                           style: TextStyle(fontSize: 20,fontWeight: 
                           FontWeight.w500,),),

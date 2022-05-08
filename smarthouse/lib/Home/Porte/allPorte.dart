@@ -44,7 +44,10 @@ class _allPorteState extends State<allPorte> {
             
             mainAxisAlignment: MainAxisAlignment.center,
             children: [ allOffPorte(),
-             porteChambre(),porteCuisine(),porteGarage(),porteSalon()
+            porteSalon(),
+            porteCuisine(),
+             porteChambre(),
+             porteGarage(),
              
       
           
@@ -96,17 +99,13 @@ class _porteSalonState extends State<porteSalon> {
             return Container(
               child: Column(
                 children: [
-                         if(statusPorte['piece']=="salon")...[
-                        Column(children: [  Text("Salon"),
-                             
-                             ],)
-  
+                      
                           
                 
 
-                         ],
+                        
                   if(statusPorte['piece']=="salon")...[
-                  
+                     Text('${statusPorte['piece']}',),
                   
             Container(
                      margin: const EdgeInsets.fromLTRB(20,0,20,0),                 
@@ -236,6 +235,7 @@ class _porteCuisineState extends State<porteCuisine> {
               child: Column(
                 children: [
             if(statusPorte['piece']=="cuisine")...[
+                    Text('${statusPorte['piece']}',),
              Container(
                      margin: const EdgeInsets.fromLTRB(20,0,20,0),                 
                  decoration: BoxDecoration(border: Border.all(width: 3),
@@ -356,7 +356,7 @@ class _porteChambreState extends State<porteChambre> {
                 children: [
                 
 if(statusPorte['piece']=="chambre")...[
-
+      Text('${statusPorte['piece']}',),
                Column(
                  children: [
                 
@@ -382,7 +382,7 @@ if(statusPorte['piece']=="chambre")...[
                 IconButton(icon: Icon(Icons.lightbulb), onPressed: () {  },
         ),
                       Expanded( 
-                        child: Text('Led ${statusPorte['nom']} : ${statusPorte['status']!=true?'off':'on'}',
+                        child: Text('Porte ${statusPorte['nom']} : ${statusPorte['status']!=true?'off':'on'}',
            
                               style: TextStyle(fontSize: 20,fontWeight: 
                               FontWeight.w500,),),
@@ -490,6 +490,7 @@ class _porteGarageState extends State<porteGarage> {
                 
                   if(statusPorte['piece']=="garage")...[
                     if(statusPorte['nom']!="porteGarage")...[
+                            Text('${statusPorte['piece']}',),
                Container(
                  margin: const EdgeInsets.all(20.0),
                  
@@ -512,7 +513,7 @@ class _porteGarageState extends State<porteGarage> {
                 IconButton(icon: Icon(Icons.lightbulb), onPressed: () {  },
         ),
                   Expanded( 
-                    child: Text('Led ${statusPorte['nom']} : ${statusPorte['status']!=true?'off':'on'}',
+                    child: Text('Porte ${statusPorte['nom']} : ${statusPorte['status']!=true?'off':'on'}',
            
                           style: TextStyle(fontSize: 20,fontWeight: 
                           FontWeight.w500,),),
