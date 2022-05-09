@@ -39,24 +39,26 @@ class _allTemperatureState extends State<allTemperature> {
         */
       ),
      
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [   
-             
-               
-               temperatureGlobal(),
-               
-            
+      body: Center(
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
               
-         
-             
-      
-          
-        ],
-        ),
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [   
+               
+                 
+                 temperatureGlobal(),
+                 
+              
+                
+           
+               
+        
+            
+          ],
+          ),
+          ),
         ),
       )
       

@@ -40,23 +40,25 @@ class _allAlarmeState extends State<allAlarme> {
         ],
       ),
      
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [ 
-               alarmeSalon(),
-               alarmeCuisine(),
-               alarmeChambre(),
-               alarmeGarage(),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
               
-          allOffAlarm(),
-             
-      
-          
-        ],
-        ),
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [ 
+                 alarmeSalon(),
+                 alarmeCuisine(),
+                 alarmeChambre(),
+                 alarmeGarage(),
+                
+            allOffAlarm(),
+               
+        
+            
+          ],
+          ),
+          ),
         ),
       )
       

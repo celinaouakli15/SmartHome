@@ -41,23 +41,25 @@ class _allLedState extends State<allLed> {
         ],
       ),
      
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [ 
+      body: Center(
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
               
-              ledSalon(),
-                ledCuisine(),
-               ledChambre(),
-                 ledGarage(),
-          allOff(),  
-             
-      
-          
-        ],
-        ),
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [ 
+                
+                ledSalon(),
+                  ledCuisine(),
+                 ledChambre(),
+                   ledGarage(),
+            allOff(),  
+               
+        
+            
+          ],
+          ),
+          ),
         ),
       )
       

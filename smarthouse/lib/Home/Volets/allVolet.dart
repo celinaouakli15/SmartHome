@@ -42,23 +42,25 @@ class _allVoletState extends State<allVolet> {
         ],
       ),
      
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
+      body: Center(
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [    
+              
+                voletSalon(),
+                  voletCuisine(),
+                  voletChambre(),
+                    voletGarage(),
+             allOffVolet(),
+               
+        
             
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [    
-            
-              voletSalon(),
-                voletCuisine(),
-                voletChambre(),
-                  voletGarage(),
-           allOffVolet(),
-             
-      
-          
-        ],
-        ),
+          ],
+          ),
+          ),
         ),
       )
       

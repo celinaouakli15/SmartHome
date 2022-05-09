@@ -226,7 +226,7 @@ class _alarmeGarageState extends State<alarmeGarage> {
             return Container(
               child: Column(
                 children: [
-                  if(statusAlarme['piece']=="cuisine")...[
+                  if(statusAlarme['piece']=="garage")...[
                    
 
                              Text('status : ${statusAlarme['status']!=true?'off':'on'}'),

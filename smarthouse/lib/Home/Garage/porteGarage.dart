@@ -40,19 +40,21 @@ class _porteGaragesState extends State<porteGarages> {
         ],
       ),
      
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
+      body: Center(
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [ 
+                 Text("Porte Garage"),voiture()
+               
+               
+        
             
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [ 
-               Text("Porte Garage"),voiture()
-             
-             
-      
-          
-        ],
-        ),
+          ],
+          ),
+          ),
         ),
       )
       

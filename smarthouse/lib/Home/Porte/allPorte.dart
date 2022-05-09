@@ -38,21 +38,23 @@ class _allPorteState extends State<allPorte> {
         ],
       ),
      
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
+      body: Center(
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [ 
+              porteSalon(),
+              porteCuisine(),
+               porteChambre(),
+               porteGarage(),
+               allOffPorte(),
+        
             
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [ 
-            porteSalon(),
-            porteCuisine(),
-             porteChambre(),
-             porteGarage(),
-             allOffPorte(),
-      
-          
-        ],
-        ),
+          ],
+          ),
+          ),
         ),
       )
       

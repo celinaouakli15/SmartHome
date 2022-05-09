@@ -1,7 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:smarthouse/Home/Led/optionLed.dart';
 
 import '../Temperature/allTemperature.dart';
 
@@ -20,6 +18,7 @@ class _donneesState extends State<donnees> {
 
            automaticallyImplyLeading: false, 
          title: Text("Capteur Actif"),
+         
        ),
        
      
