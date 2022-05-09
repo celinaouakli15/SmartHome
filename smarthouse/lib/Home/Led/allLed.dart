@@ -47,12 +47,12 @@ class _allLedState extends State<allLed> {
             
             mainAxisAlignment: MainAxisAlignment.center,
             children: [ 
-              allOff(),   
+              
               ledSalon(),
                 ledCuisine(),
                ledChambre(),
                  ledGarage(),
-         
+          allOff(),  
              
       
           
@@ -185,14 +185,14 @@ if(ledStatus['status']==true){
                 
                
                 ],
-              ),
+              ), 
             ),
           
-          ),
+          ),SizedBox(height: 10,)
                 
           
           ],
-         SizedBox(height: 10,)
+        
           
                 
                      ]
@@ -630,12 +630,20 @@ class _allOffState extends State<allOff> {
                bool allOff;
                     var allOn;
                    
-            return Container(
+            return Padding(
+                padding: const EdgeInsets.all(20),
+                
               child: Column(
                 children: [
                    if(document.id=="led1")...[
                    
-                   RaisedButton(
+                   
+ElevatedButton(
+  style: ElevatedButton.styleFrom(primary: Colors.green,
+    minimumSize: const Size.fromHeight(50),
+    
+  ),
+
                      
                      onPressed: (){
                
@@ -649,14 +657,13 @@ class _allOffState extends State<allOff> {
                     .then((value) => print("User Updated"))
                     .catchError((error) => print("Failed to update user: $error"));}
                     if (ledStatus['status']==true) {
-                      allOff= true;
-                      allOn = allOff;
+                
 
                     }
 
             },
-             child: Text('Tout éteindre',),
-             color: Colors.green,
+             child: Text('Tout éteindre',style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),),
+             
                 
             ),
                 

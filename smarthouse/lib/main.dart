@@ -49,21 +49,29 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         appBar: AppBar(
                    backgroundColor: Color.fromARGB(221, 23, 22, 22),
-
+elevation: 0,
           title: Text("SmartHouse"),
    automaticallyImplyLeading: false,
        
         
         
-      ),
+      ), backgroundColor: Color.fromARGB(221, 23, 22, 22),
            body: Center (
+             
              child: SingleChildScrollView(
-               
-               child: Column(
-                 
-                 mainAxisAlignment: MainAxisAlignment.center,
-                 children: [
-              ElevatedButton(
+              
+               child: Padding(
+               padding: const EdgeInsets.all(20),
+                 child: Column(
+                   
+                   mainAxisAlignment: MainAxisAlignment.center,
+                   children: [
+                         
+                  ElevatedButton(
+  style: ElevatedButton.styleFrom(primary: Colors.blue,
+    minimumSize: const Size.fromHeight(50),
+    
+  ),
   
   onPressed: (){
    
@@ -73,19 +81,9 @@ class _MyHomePageState extends State<MyHomePage> {
    
 
 }, child: Text("Commencer")),
- ElevatedButton(
-  
-  onPressed: (){
-   
-  Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => simulation()));
-   
-
-}, child: Text("Simulation")),
-             
-              
-              ],),),
+           
+              ],),
+               ),),
            ) 
       
             

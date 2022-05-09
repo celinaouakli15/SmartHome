@@ -48,12 +48,12 @@ class _allVoletState extends State<allVolet> {
             
             mainAxisAlignment: MainAxisAlignment.center,
             children: [    
-              allOffVolet(),
+            
               voletSalon(),
                 voletCuisine(),
                 voletChambre(),
-                  voletGarage()
-         
+                  voletGarage(),
+           allOffVolet(),
              
       
           
@@ -598,13 +598,17 @@ class _allOffVoletState extends State<allOffVolet> {
                bool allOff;
                     var allOn;
                    
-            return Container(
+            return Padding(
+               padding: const EdgeInsets.all(20),
               child: Column(
                 children: [
                    if(document.id=="salon")...[
                    
-                   RaisedButton(
-                     
+                ElevatedButton(
+  style: ElevatedButton.styleFrom(primary: Colors.green,
+    minimumSize: const Size.fromHeight(50),
+    
+  ),
                      onPressed: (){
                
                 
@@ -624,7 +628,6 @@ class _allOffVoletState extends State<allOffVolet> {
 
             },
              child: Text('Tout éteindre',),
-             color: Colors.green,
                 
             ),
                 

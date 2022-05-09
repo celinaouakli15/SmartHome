@@ -120,9 +120,9 @@ class _temperatureGlobalState extends State<temperatureGlobal> {
                              
                              
                               ),),
-                           Text("${tempsStatus['temperature_c']} °C",
+                           Text("${tempsStatus['temperature_c']} ",
                            style: TextStyle(
-                             fontSize: 90,
+                             fontSize: 50,
                              fontFamily: "Popins",
                              color: Color.fromARGB(255, 255, 255, 255),
                              
@@ -142,7 +142,7 @@ class _temperatureGlobalState extends State<temperatureGlobal> {
                               ),),
                            Text("${tempsStatus['temperature_f']}",
                            style: TextStyle(
-                             fontSize: 90,
+                             fontSize: 50,
                              fontFamily: "Popins",
                              color: Color.fromARGB(255, 255, 255, 255),
                              
@@ -159,7 +159,7 @@ class _temperatureGlobalState extends State<temperatureGlobal> {
                               ),),
                            Text("${tempsStatus['humidity']}",
                            style: TextStyle(
-                             fontSize: 90,
+                             fontSize: 50,
                              fontFamily: "Popins",
                              color: Color.fromARGB(255, 255, 255, 255),
                              

@@ -16,6 +16,11 @@ class _donneesState extends State<donnees> {
    @override
   Widget build(BuildContext context) {
      return Scaffold(
+       appBar: AppBar(
+
+           automaticallyImplyLeading: false, 
+         title: Text("Capteur Actif"),
+       ),
        
      
       body: SingleChildScrollView(
@@ -24,12 +29,12 @@ class _donneesState extends State<donnees> {
             
             mainAxisAlignment: MainAxisAlignment.center,
             children: [ 
-       
+        temperatureGlobal(),
                 nbrLed(),
                 nbrVolet(),
                 nbrPorte(),
                 nbrAlarme(),
-                temperatureGlobal(),
+               
         ],
         ),
         ),
@@ -82,29 +87,20 @@ class _nbrLedState extends State<nbrLed> {
           
           children: snapshot.data!.docs.map((DocumentSnapshot document) {
                 Map<String, dynamic> ledStatus = document.data()! as Map<String, dynamic>;
-               bool valeur = ledStatus['status'];
-         
+   
+         listId.add(document.id);
             
-               bool allOff;
-                    var allOn;
-                   listId.add(document.id);
-if (ledStatus['status']== true && (((listId.length+1)/i)< listOnLed.length)) {
-  listOnLed.add(document.id);
-}
+        
+                   
 
-if (ledStatus['status']== false) {
-  listOffLed.add(document.id);
-}
-print("off:");
-print(listOffLed.length);
-print("list id");
-print(listId.length);
+
 
             return Container(
              
               child: Column(
                 children: [
-                   if(document.id=="led1")...[
+
+                   if(ledStatus['status']==true)...[
                    Container(
                       margin: const EdgeInsets.all(20.0),
                  
@@ -120,14 +116,14 @@ print(listId.length);
                          SizedBox(width: 10,),
              Expanded( 
                     child:
-                Text('Nombre de Led :',
+                Text('Nom :',
            
                             style: TextStyle(fontSize: 20,fontWeight: 
                             FontWeight.w500,),),),
                   
 
 
-                  Text(((listId.length+1)/i).toString(),
+                  Text(ledStatus['nom'],
            
                             style: TextStyle(fontSize: 20,fontWeight: 
                             FontWeight.w500,),),
@@ -161,7 +157,7 @@ class nbrVolet extends StatefulWidget {
 }
 
 class _nbrVoletState extends State<nbrVolet> {
-   List listId = [];
+   List listIdVolet = [];
   int i= 0;
    Stream<QuerySnapshot> statusVolet = FirebaseFirestore.instance.collection('Volet').snapshots(includeMetadataChanges: true);
 
@@ -188,15 +184,14 @@ class _nbrVoletState extends State<nbrVolet> {
                 Map<String, dynamic> statusVolet = document.data()! as Map<String, dynamic>;
                bool valeur = statusVolet['status'];
          
-            
-               bool allOff;
-                    var allOn;
-                   listId.add(document.id);
+           
+                   listIdVolet.add(document.id);
             return Container(
              
               child: Column(
                 children: [
-                   if(document.id=="salon")...[
+
+                   if(statusVolet['status']==true)...[
                    Container(
                       margin: const EdgeInsets.all(20.0),
                  
@@ -212,26 +207,28 @@ class _nbrVoletState extends State<nbrVolet> {
                          SizedBox(width: 10,),
              Expanded( 
                     child:
-                Text('Nombre de Volet :',
+                Text('Nom :',
            
                             style: TextStyle(fontSize: 20,fontWeight: 
                             FontWeight.w500,),),),
                   
 
 
-                  Text(((listId.length+1)/i).toString(),
+                  Text(statusVolet['nom'],
            
                             style: TextStyle(fontSize: 20,fontWeight: 
                             FontWeight.w500,),),
                             SizedBox(width: 10,),
                   
-                     ],),
-                   )
+                     ],
+                     
+                     
+                     ),
+                   ),
+                    
+                     ]
                   
-                
-         
-                
-                     ]]
+                     ]
                   
                 
                 
@@ -253,7 +250,7 @@ class nbrPorte extends StatefulWidget {
 }
 
 class _nbrPorteState extends State<nbrPorte> {
- List listId = [];
+ List listIdPorte = [];
   List listOffLed = [];
   List listOnLed = [];
   int i= 0;
@@ -280,29 +277,21 @@ class _nbrPorteState extends State<nbrPorte> {
           
           children: snapshot.data!.docs.map((DocumentSnapshot document) {
                 Map<String, dynamic> ledStatus = document.data()! as Map<String, dynamic>;
-               bool valeur = ledStatus['status'];
-         
-            
-               bool allOff;
-                    var allOn;
-                   listId.add(document.id);
-if (ledStatus['status']== true && (((listId.length+1)/i)< listOnLed.length)) {
-  listOnLed.add(document.id);
-}
+    
+                   listIdPorte.add(document.id);
 
-if (ledStatus['status']== false) {
-  listOffLed.add(document.id);
-}
 print("off:");
 print(listOffLed.length);
 print("list id");
-print(listId.length);
+print(listIdPorte.length);
 
             return Container(
              
               child: Column(
                 children: [
-                   if(document.id=="porte1")...[
+                  
+
+                   if(ledStatus['status']==true)...[
                    Container(
                       margin: const EdgeInsets.all(20.0),
                  
@@ -318,14 +307,14 @@ print(listId.length);
                          SizedBox(width: 10,),
              Expanded( 
                     child:
-                Text('Nombre de Porte :',
+                Text('Nom :',
            
                             style: TextStyle(fontSize: 20,fontWeight: 
                             FontWeight.w500,),),),
                   
 
 
-                  Text(((listId.length+1)/i).toString(),
+                  Text(ledStatus['nom'],
            
                             style: TextStyle(fontSize: 20,fontWeight: 
                             FontWeight.w500,),),
@@ -335,11 +324,12 @@ print(listId.length);
                      
                      
                      ),
-                   ),
+                   )
                     
-                     ]]
+                   ]
+                   
+                   ]
                   
-                       
                 
               ),
             );
@@ -360,7 +350,7 @@ class nbrAlarme extends StatefulWidget {
 }
 
 class _nbrAlarmeState extends State<nbrAlarme> {
- List listId = [];
+ List listIdAlarme = [];
   List listOffLed = [];
   List listOnLed = [];
   int i= 0;
@@ -392,24 +382,19 @@ class _nbrAlarmeState extends State<nbrAlarme> {
             
                bool allOff;
                     var allOn;
-                   listId.add(document.id);
-if (ledStatus['status']== true && (((listId.length+1)/i)< listOnLed.length)) {
-  listOnLed.add(document.id);
-}
+                   listIdAlarme.add(document.id);
 
-if (ledStatus['status']== false) {
-  listOffLed.add(document.id);
-}
 print("off:");
 print(listOffLed.length);
 print("list id");
-print(listId.length);
+print(listIdAlarme.length);
 
             return Container(
              
               child: Column(
-                children: [
-                   if(document.id=="alarm1")...[
+                children: [         
+
+                   if(ledStatus['status']==true)...[
                    Container(
                       margin: const EdgeInsets.all(20.0),
                  
@@ -425,14 +410,14 @@ print(listId.length);
                          SizedBox(width: 10,),
              Expanded( 
                     child:
-                Text('Nombre de Alarme :',
+                Text('Nom :',
            
                             style: TextStyle(fontSize: 20,fontWeight: 
                             FontWeight.w500,),),),
                   
 
 
-                  Text(((listId.length+1)/i).toString(),
+                  Text(ledStatus['nom'],
            
                             style: TextStyle(fontSize: 20,fontWeight: 
                             FontWeight.w500,),),
@@ -442,10 +427,11 @@ print(listId.length);
                      
                      
                      ),
-                   ),
+                   )
                     
-                     ]]
-                  
+                   ]]
+                   
+        
                        
                 
               ),

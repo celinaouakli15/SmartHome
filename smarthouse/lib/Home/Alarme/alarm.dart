@@ -45,13 +45,13 @@ class _allAlarmeState extends State<allAlarme> {
           child: Column(
             
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [  allOffAlarm(),
+            children: [ 
                alarmeSalon(),
                alarmeCuisine(),
                alarmeChambre(),
                alarmeGarage(),
               
-         
+          allOffAlarm(),
              
       
           
@@ -103,8 +103,7 @@ class _alarmeSalonState extends State<alarmeSalon> {
                 children: [
                       
                   if(statusAlarme['piece']=="salon")...[
-                     Text("SALON"),
-            Container(
+         Text(statusAlarme['piece']),            Container(
                      margin: const EdgeInsets.fromLTRB(20,0,20,0),                 
                  decoration: BoxDecoration(border: Border.all(width: 3),
                                           borderRadius: BorderRadius.circular(15),
@@ -174,9 +173,9 @@ if(statusAlarme['status']==true){
           
           ),
                 
-          
+               SizedBox(height: 10,)
           ],
-         SizedBox(height: 10,)
+    
           
                 
                      ]
@@ -229,8 +228,7 @@ class _alarmeCuisineState extends State<alarmeCuisine> {
               child: Column(
                 children: [
             if(statusAlarme['piece']=="cuisine")...[
-               Text("CUISINE"),
-             Container(
+         Text(statusAlarme['piece']),             Container(
                      margin: const EdgeInsets.fromLTRB(20,0,20,0),                 
                  decoration: BoxDecoration(border: Border.all(width: 3),
                                           borderRadius: BorderRadius.circular(15),
@@ -350,8 +348,7 @@ class _alarmeChambreState extends State<alarmeChambre> {
                 children: [
                 
 if(statusAlarme['piece']=="chambre")...[
-   Text("CHAMBRE"),
-
+         Text(statusAlarme['piece']),
                Column(
                  children: [
                 
@@ -484,7 +481,7 @@ class _alarmeGarageState extends State<alarmeGarage> {
                 children: [
                 
                   if(statusAlarme['piece']=="garage")...[
-                     Text("GARAGE"),
+                     Text(statusAlarme['piece']),
                Container(
                      margin: const EdgeInsets.fromLTRB(20,0,20,0),
                  
@@ -609,12 +606,18 @@ class _allOffAlarmState extends State<allOffAlarm> {
                bool allOff;
                     var allOn;
                    
-            return Container(
+           
+            return Padding(
+                padding: const EdgeInsets.all(20),
+                
               child: Column(
                 children: [
                    if(document.id=="alarm1")...[
-                    Text('Tout Éteindre'),
-                   RaisedButton(
+           ElevatedButton(
+  style: ElevatedButton.styleFrom(primary: Colors.green,
+    minimumSize: const Size.fromHeight(50),
+    
+  ),
                      
                      onPressed: (){
                
@@ -635,7 +638,7 @@ class _allOffAlarmState extends State<allOffAlarm> {
 
             },
              child: Text('Tout éteindre',),
-             color: Colors.green,
+
                 
             ),
                 

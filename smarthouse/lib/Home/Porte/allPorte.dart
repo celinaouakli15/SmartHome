@@ -43,12 +43,12 @@ class _allPorteState extends State<allPorte> {
           child: Column(
             
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [ allOffPorte(),
+            children: [ 
             porteSalon(),
             porteCuisine(),
              porteChambre(),
              porteGarage(),
-             
+             allOffPorte(),
       
           
         ],
@@ -616,12 +616,19 @@ class _allOffPorteState extends State<allOffPorte> {
                bool allOff;
                     var allOn;
                    
-            return Container(
+
+            return Padding(
+                padding: const EdgeInsets.all(20),
+                
               child: Column(
                 children: [
                    if(document.id=="PorteGarage")...[
-                   
-                   RaisedButton(
+             
+                ElevatedButton(
+  style: ElevatedButton.styleFrom(primary: Colors.green,
+    minimumSize: const Size.fromHeight(50),
+    
+  ),
                      
                      onPressed: (){
                
@@ -642,7 +649,7 @@ class _allOffPorteState extends State<allOffPorte> {
 
             },
              child: Text('Tout éteindre',),
-             color: Colors.green,
+          
                 
             ),
                 
