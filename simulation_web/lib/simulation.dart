@@ -32,8 +32,12 @@ class _simulationState extends State<simulation> {
                  
                  mainAxisAlignment: MainAxisAlignment.center,
                  children: [
-                   
-                 
+                   Row( 
+                     mainAxisAlignment: MainAxisAlignment.center,
+                     children: [  
+                       Text("Lien apk de l'application en date du 10/05/2022  :  "),
+                         Text("https://www.swisstransfer.com/d/92d435cc-7a23-473a-9061-51dda3025ee9"),
+                 ],),
                      Row(
                        mainAxisAlignment: MainAxisAlignment.center,
                    

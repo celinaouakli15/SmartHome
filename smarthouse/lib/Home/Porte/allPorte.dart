@@ -49,8 +49,9 @@ class _allPorteState extends State<allPorte> {
               porteCuisine(),
                porteChambre(),
                porteGarage(),
-               allOffPorte(),
-        
+           
+               allOnPorte(),
+            allOffPorte(),
             
           ],
           ),
@@ -635,10 +636,10 @@ class _allOffPorteState extends State<allOffPorte> {
                      onPressed: (){
                
                 
-                     for (var i = 0; i < listId.length; i++) {
+                     for (var i = 0; i < 30; i++) {
                        FirebaseFirestore.instance.collection('Porte').
                      doc(listId[i])
-                    .update({'color': "noir",
+                    .update({
                               "status": false
                                })
                     .then((value) => print("User Updated"))
@@ -650,7 +651,89 @@ class _allOffPorteState extends State<allOffPorte> {
                     }
 
             },
-             child: Text('Tout éteindre',),
+             child: Text('Tout ouvrir',),
+          
+                
+            ),
+                
+         
+                
+                     ]]
+                  
+                
+                
+              ),
+            );
+          }).toList(),
+        );
+      },
+      
+    );
+  }
+}class allOnPorte extends StatefulWidget {
+  const allOnPorte({ Key? key }) : super(key: key);
+
+  @override
+  State<allOnPorte> createState() => _allOnPorteState();
+}
+
+class _allOnPorteState extends State<allOnPorte> {
+  List listId = [];
+  
+   Stream<QuerySnapshot> statusPorte = FirebaseFirestore.instance.collection('Porte').snapshots(includeMetadataChanges: true);
+
+  get allOnrue => null;
+  @override
+  Widget build(BuildContext context) {
+    return  StreamBuilder<QuerySnapshot>(
+      stream: statusPorte,
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return Text('Something went wrong');
+        }
+
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Text("Loading");
+        }
+
+        return Column(
+          
+          children: snapshot.data!.docs.map((DocumentSnapshot document) {
+                Map<String, dynamic> statusPorte = document.data()! as Map<String, dynamic>;
+               bool valeur = statusPorte['status'];
+         
+            listId.add(document.id);
+               bool allOff;
+                    var allOn;
+                   
+
+            return Padding(
+                padding: const EdgeInsets.fromLTRB(20,0,20,0),
+                
+              child: Column(
+                children: [
+                   if(document.id=="PorteGarage")...[
+             
+                ElevatedButton(
+  style: ElevatedButton.styleFrom(primary: Colors.green,
+    minimumSize: const Size.fromHeight(50),
+    
+  ),
+                     
+                     onPressed: (){
+               
+                
+                     for (var i = 0; i < 30; i++) {
+                       FirebaseFirestore.instance.collection('Porte').
+                     doc(listId[i])
+                    .update({
+                              "status": false
+                               })
+                    .then((value) => print("User Updated"))
+                    .catchError((error) => print("Failed to update user: $error"));}
+                   
+            },
+             child: Text('Tout fermer',),
           
                 
             ),

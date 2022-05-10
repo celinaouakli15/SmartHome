@@ -51,8 +51,10 @@ class _allAlarmeState extends State<allAlarme> {
                  alarmeCuisine(),
                  alarmeChambre(),
                  alarmeGarage(),
-                
+                 SizedBox(height: 20,),
+                allOnAlarme(),
             allOffAlarm(),
+            
                
         
             
@@ -624,22 +626,100 @@ class _allOffAlarmState extends State<allOffAlarm> {
                      onPressed: (){
                
                 
-                     for (var i = 0; i < listId.length; i++) {
+                     for (int i = 0; i < 30; i++) {
                        FirebaseFirestore.instance.collection('alarm').
                      doc(listId[i])
-                    .update({'color': "noir",
+                    .update({
                               "status": false
                                })
                     .then((value) => print("User Updated"))
                     .catchError((error) => print("Failed to update user: $error"));}
-                    if (ledStatus['status']==true) {
-                      allOff= true;
-                      allOn = allOff;
-
-                    }
-
+                   
             },
              child: Text('Tout éteindre',),
+
+                
+            ),
+                
+         
+                
+                     ]]
+                  
+                
+                
+              ),
+            );
+          }).toList(),
+        );
+      },
+      
+    );
+  }
+}
+class allOnAlarme extends StatefulWidget {
+  const allOnAlarme({ Key? key }) : super(key: key);
+
+  @override
+  State<allOnAlarme> createState() => _allOnAlarmeState();
+}
+
+class _allOnAlarmeState extends State<allOnAlarme> {
+  List listId = [];
+  
+   Stream<QuerySnapshot> statusAlarm = FirebaseFirestore.instance.collection('alarm').snapshots(includeMetadataChanges: true);
+
+  get allOnrue => null;
+  @override
+  Widget build(BuildContext context) {
+    return  StreamBuilder<QuerySnapshot>(
+      stream: statusAlarm,
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return Text('Something went wrong');
+        }
+
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Text("Loading");
+        }
+
+        return Column(
+          
+          children: snapshot.data!.docs.map((DocumentSnapshot document) {
+                Map<String, dynamic> ledStatus = document.data()! as Map<String, dynamic>;
+               bool valeur = ledStatus['status'];
+         
+            listId.add(document.id);
+               bool allOff;
+                    var allOn;
+                   
+           
+            return Padding(
+                   padding: const EdgeInsets.fromLTRB(20,0,20,0),
+                
+              child: Column(
+                children: [
+                   if(document.id=="alarm1")...[
+           ElevatedButton(
+  style: ElevatedButton.styleFrom(primary: Colors.green,
+    minimumSize: const Size.fromHeight(50),
+    
+  ),
+                     
+                     onPressed: (){
+               
+                
+                     for (int i = 0; i < 30; i++) {
+                       FirebaseFirestore.instance.collection('alarm').
+                     doc(listId[i])
+                    .update({
+                              "status": true
+                               })
+                    .then((value) => print("User Updated"))
+                    .catchError((error) => print("Failed to update user: $error"));}
+                   
+
+            },
+             child: Text('Tout allumer',),
 
                 
             ),

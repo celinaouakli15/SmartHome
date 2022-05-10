@@ -48,14 +48,15 @@ class _allLedState extends State<allLed> {
               
               mainAxisAlignment: MainAxisAlignment.center,
               children: [ 
-                
+              
                 ledSalon(),
                   ledCuisine(),
                  ledChambre(),
                    ledGarage(),
-            allOff(),  
-               
-        
+          SizedBox(height: 20,),
+            allOnLed(),
+               allOffLed(),  
+          
             
           ],
           ),
@@ -109,7 +110,6 @@ compteur(i){
           
        
       
-         print((((listId.length)/i)).toString());
             return Container(
               child: Column(
                 children: [ 
@@ -596,14 +596,14 @@ if(ledStatus['status']==true){
   }
 }
 
-class allOff extends StatefulWidget {
-  const allOff({ Key? key }) : super(key: key);
+class allOffLed extends StatefulWidget {
+  const allOffLed({ Key? key }) : super(key: key);
 
   @override
-  State<allOff> createState() => _allOffState();
+  State<allOffLed> createState() => _allOffLedState();
 }
 
-class _allOffState extends State<allOff> {
+class _allOffLedState extends State<allOffLed> {
   List listId = [];
   
    Stream<QuerySnapshot> statusLed = FirebaseFirestore.instance.collection('Led').snapshots(includeMetadataChanges: true);
@@ -629,8 +629,7 @@ class _allOffState extends State<allOff> {
                bool valeur = ledStatus['status'];
          
             listId.add(document.id);
-               bool allOff;
-                    var allOn;
+          
                    
             return Padding(
                 padding: const EdgeInsets.all(20),
@@ -650,10 +649,10 @@ ElevatedButton(
                      onPressed: (){
                
                 
-                     for (var i = 0; i < listId.length; i++) {
+                     for (var i = 0; i < 40; i++) {
                        FirebaseFirestore.instance.collection('Led').
                      doc(listId[i])
-                    .update({'color': "noir",
+                    .update({
                               "status": false
                                })
                     .then((value) => print("User Updated"))
@@ -665,6 +664,92 @@ ElevatedButton(
 
             },
              child: Text('Tout éteindre',style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),),
+             
+                
+            ),
+                
+         
+                
+                     ]]
+                  
+                
+                
+              ),
+            );
+          }).toList(),
+        );
+      },
+      
+    );
+  }
+}
+
+class allOnLed extends StatefulWidget {
+  const allOnLed({ Key? key }) : super(key: key);
+
+  @override
+  State<allOnLed> createState() => _allOnLedState();
+}
+
+class _allOnLedState extends State<allOnLed> {
+   List listId = [];
+  
+   Stream<QuerySnapshot> statusLed = FirebaseFirestore.instance.collection('Led').snapshots(includeMetadataChanges: true);
+
+
+  @override
+  Widget build(BuildContext context) {
+    return  StreamBuilder<QuerySnapshot>(
+      stream: statusLed,
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return Text('Something went wrong');
+        }
+
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Text("Loading");
+        }
+
+        return Column(
+          
+          children: snapshot.data!.docs.map((DocumentSnapshot document) {
+                Map<String, dynamic> ledStatus = document.data()! as Map<String, dynamic>;
+               bool valeur = ledStatus['status'];
+         
+            listId.add(document.id);
+             
+                   
+            return Padding(
+                padding: const EdgeInsets.fromLTRB(20,0,20,0),
+                
+              child: Column(
+                children: [
+                
+                   if(document.id=="led2")...[
+                   
+                   
+ElevatedButton(
+  style: ElevatedButton.styleFrom(primary: Colors.green,
+    minimumSize: const Size.fromHeight(50),
+    
+  ),
+
+                     
+                     onPressed: (){
+               
+                
+                     for (var i = 0; i < 20; i++) {
+                       FirebaseFirestore.instance.collection('Led').
+                     doc(listId[i])
+                    .update({
+                              "status": true
+                               })
+                    .then((value) => print("User Updated"))
+                    .catchError((error) => print("Failed to update user: $error"));}
+                   
+
+            },
+             child: Text('Tout allumer',style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),),
              
                 
             ),

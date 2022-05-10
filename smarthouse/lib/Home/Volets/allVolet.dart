@@ -1,10 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:smarthouse/Home/Volets/addVolet.dart';
 import 'package:smarthouse/Home/Volets/optionVolet.dart';
 
-import '../Led/addLed.dart';
 
 class allVolet extends StatefulWidget {
   const allVolet({ Key? key }) : super(key: key);
@@ -54,6 +52,8 @@ class _allVoletState extends State<allVolet> {
                   voletCuisine(),
                   voletChambre(),
                     voletGarage(),
+                    SizedBox(height: 20,),
+                    allOnVolet(),
              allOffVolet(),
                
         
@@ -614,10 +614,10 @@ class _allOffVoletState extends State<allOffVolet> {
                      onPressed: (){
                
                 
-                     for (var i = 0; i < listId.length; i++) {
+                     for (var i = 0; i < 30; i++) {
                        FirebaseFirestore.instance.collection('Volet').
                      doc(listId[i])
-                    .update({'color': "noir",
+                    .update({
                               "status": false
                                })
                     .then((value) => print("User Updated"))
@@ -629,7 +629,91 @@ class _allOffVoletState extends State<allOffVolet> {
                     }
 
             },
-             child: Text('Tout éteindre',),
+             child: Text('Tout fermer',),
+                
+            ),
+                
+         
+                
+                     ]]
+                  
+                
+                
+              ),
+            );
+          }).toList(),
+        );
+      },
+      
+    );
+  }
+}
+class allOnVolet extends StatefulWidget {
+  const allOnVolet({ Key? key }) : super(key: key);
+
+  @override
+  State<allOnVolet> createState() => _allOnVoletState();
+}
+
+class _allOnVoletState extends State<allOnVolet> {
+  List listId = [];
+  
+   Stream<QuerySnapshot> statusVolet = FirebaseFirestore.instance.collection('Volet').snapshots(includeMetadataChanges: true);
+
+  get allOnrue => null;
+  @override
+  Widget build(BuildContext context) {
+    return  StreamBuilder<QuerySnapshot>(
+      stream: statusVolet,
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return Text('Something went wrong');
+        }
+
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Text("Loading");
+        }
+
+        return Column(
+          
+          children: snapshot.data!.docs.map((DocumentSnapshot document) {
+                Map<String, dynamic> statusVolet = document.data()! as Map<String, dynamic>;
+               bool valeur = statusVolet['status'];
+         
+            listId.add(document.id);
+               bool allOff;
+                    var allOn;
+                   
+            return Padding(
+                    padding: const EdgeInsets.fromLTRB(20,0,20,0),
+              child: Column(
+                children: [
+                   if(document.id=="salon")...[
+                   
+                ElevatedButton(
+  style: ElevatedButton.styleFrom(primary: Colors.green,
+    minimumSize: const Size.fromHeight(50),
+    
+  ),
+                     onPressed: (){
+               
+                
+                     for (var i = 0; i < 30; i++) {
+                       FirebaseFirestore.instance.collection('Volet').
+                     doc(listId[i])
+                    .update({
+                              "status": true
+                               })
+                    .then((value) => print("User Updated"))
+                    .catchError((error) => print("Failed to update user: $error"));}
+                    if (statusVolet['status']==true) {
+                      allOff= true;
+                      allOn = allOff;
+
+                    }
+
+            },
+             child: Text('Tout ouvrir',),
                 
             ),
                 
