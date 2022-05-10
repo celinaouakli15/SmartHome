@@ -48,7 +48,16 @@ class _alarmeSalonState extends State<alarmeSalon> {
           children: snapshot.data!.docs.map((DocumentSnapshot document) {
                 Map<String, dynamic> statusAlarme = document.data()! as Map<String, dynamic>;
                bool valeur = statusAlarme['status'];
-         
+             var col;
+         if (statusAlarme['status']!=true) {
+            col = Colors.red;
+       
+           
+         }
+          if (statusAlarme['status']==true) {
+          col = Colors.green;
+           
+         }
            
             return Container(
               child: Column(
@@ -56,7 +65,8 @@ class _alarmeSalonState extends State<alarmeSalon> {
                     if(statusAlarme['piece']=="salon")...[
                    
 
-                             Text('status : ${statusAlarme['status']!=true?'off':'on'}'),
+                             Text('status : ${statusAlarme['status']!=true?'off':'on'}', style: 
+                     TextStyle(color: col),),
                     Text('nom : ${statusAlarme['nom']}'),
                      Text('piece : ${statusAlarme['piece']}'),
          SizedBox(height: 50,),
@@ -110,13 +120,24 @@ class _alarmeCuisineState extends State<alarmeCuisine> {
                 Map<String, dynamic> statusAlarme = document.data()! as Map<String, dynamic>;
                bool valeur = statusAlarme['status'];
          
+             var col;
+         if (statusAlarme['status']!=true) {
+            col = Colors.red;
+       
+           
+         }
+          if (statusAlarme['status']==true) {
+          col = Colors.green;
+           
+         }
            
             return Container(
               child: Column(
                 children: [if(statusAlarme['piece']=="cuisine")...[
                    
 
-                             Text('status : ${statusAlarme['status']!=true?'off':'on'}'),
+                             Text('status : ${statusAlarme['status']!=true?'off':'on'}', style: 
+                     TextStyle(color: col),),
                     Text('nom : ${statusAlarme['nom']}'),
                      Text('piece : ${statusAlarme['piece']}'),
          SizedBox(height: 50,),
@@ -166,14 +187,25 @@ class _alarmeChambreState extends State<alarmeChambre> {
           children: snapshot.data!.docs.map((DocumentSnapshot document) {
                 Map<String, dynamic> statusAlarme = document.data()! as Map<String, dynamic>;
                bool valeur = statusAlarme['status'];
-         
+           var col;
+         if (statusAlarme['status']!=true) {
+            col = Colors.red;
+       
+           
+         }
+          if (statusAlarme['status']==true) {
+          col = Colors.green;
+           
+         }
+           
            
             return Container(
               child: Column(
                 children: [if(statusAlarme['piece']=="chambre")...[
                    
 
-                             Text('status : ${statusAlarme['status']!=true?'off':'on'}'),
+                             Text('status : ${statusAlarme['status']!=true?'off':'on'}', style: 
+                     TextStyle(color: col),),
                     Text('nom : ${statusAlarme['nom']}'),
                      Text('piece : ${statusAlarme['piece']}'),
          SizedBox(height: 50,),
@@ -222,6 +254,16 @@ class _alarmeGarageState extends State<alarmeGarage> {
                 Map<String, dynamic> statusAlarme = document.data()! as Map<String, dynamic>;
                bool valeur = statusAlarme['status'];
          
+             var col;
+         if (statusAlarme['status']!=true) {
+            col = Colors.red;
+       
+           
+         }
+          if (statusAlarme['status']==true) {
+          col = Colors.green;
+           
+         }
            
             return Container(
               child: Column(
@@ -229,7 +271,8 @@ class _alarmeGarageState extends State<alarmeGarage> {
                   if(statusAlarme['piece']=="garage")...[
                    
 
-                             Text('status : ${statusAlarme['status']!=true?'off':'on'}'),
+                             Text('status : ${statusAlarme['status']!=true?'off':'on'}', style: 
+                     TextStyle(color: col),),
                     Text('nom : ${statusAlarme['nom']}'),
                      Text('piece : ${statusAlarme['piece']}'),
          SizedBox(height: 50,),

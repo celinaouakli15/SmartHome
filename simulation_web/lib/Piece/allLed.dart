@@ -14,6 +14,8 @@ class ledSalon extends StatefulWidget {
 class _ledSalonState extends State<ledSalon> {
 int i = 0;
  List listId = [];
+
+  
 compteur(i){
 
   i= 0;
@@ -33,13 +35,25 @@ compteur(i){
           return Text("Loading");
         }
    i++;
+   
+
         return Column(
           
           children: snapshot.data!.docs.map((DocumentSnapshot document) {
                 Map<String, dynamic> ledStatus = document.data()! as Map<String, dynamic>;
                bool valeur = ledStatus['status'];
          listId.add(document.id);
-          
+var col;
+         if (ledStatus['status']!=true) {
+            col = Colors.red;
+       
+           
+         }
+          if (ledStatus['status']==true) {
+          col = Colors.green;
+           
+         }
+           
        
       
          print((((listId.length)/i)).toString());
@@ -49,7 +63,8 @@ compteur(i){
   
                if(ledStatus['piece']=="salon")...[ 
                      
-                     Text('status : ${ledStatus['status']!=true?'off':'on'}'),
+                     Text('status : ${ledStatus['status']!=true?'off':'on'}',style: 
+                     TextStyle(color: col),),
                     Text('nom : ${ledStatus['nom']}'),
                      Text('piece : ${ledStatus['piece']}'),
          SizedBox(height: 50,)],
@@ -99,7 +114,16 @@ int i = 0;
           children: snapshot.data!.docs.map((DocumentSnapshot document) {
                 Map<String, dynamic> ledStatus = document.data()! as Map<String, dynamic>;
                bool valeur = ledStatus['status'];
-         
+         var col;
+         if (ledStatus['status']!=true) {
+            col = Colors.red;
+       
+           
+         }
+          if (ledStatus['status']==true) {
+          col = Colors.green;
+           
+         }
            i++;
         return Container(
               child: Column(
@@ -107,7 +131,8 @@ int i = 0;
   
                 if(ledStatus['piece']=="cuisine")...[ 
                      
-                     Text('status : ${ledStatus['status']!=true?'off':'on'}'),
+                     Text('status : ${ledStatus['status']!=true?'off':'on'}',style: 
+                     TextStyle(color: col),),
                     Text('nom : ${ledStatus['nom']}'),
                      Text('piece : ${ledStatus['piece']}'),
          SizedBox(height: 50,)],
@@ -161,15 +186,25 @@ class _ledChambreState extends State<ledChambre> {
                 Map<String, dynamic> ledStatus = document.data()! as Map<String, dynamic>;
                bool valeur = ledStatus['status'];
          
+           var col;
+         if (ledStatus['status']!=true) {
+            col = Colors.red;
+       
            
+         }
+          if (ledStatus['status']==true) {
+          col = Colors.green;
+           
+         }
              return Container(
               child: Column(
                 children: [ 
   
                 if(ledStatus['piece']=="chambre")...[ 
                      
-                     Text('status : ${ledStatus['status']!=true?'off':'on'}'),
-                    Text('nom : ${ledStatus['nom']}'),
+ Text('status : ${ledStatus['status']!=true?'off':'on'}',style: 
+                     TextStyle(color: col),),
+                                         Text('nom : ${ledStatus['nom']}'),
                      Text('piece : ${ledStatus['piece']}'),
          SizedBox(height: 50,)],
   
@@ -219,14 +254,25 @@ class _ledGarageState extends State<ledGarage> {
           children: snapshot.data!.docs.map((DocumentSnapshot document) {
                 Map<String, dynamic> ledStatus = document.data()! as Map<String, dynamic>;
                bool valeur = ledStatus['status'];
-         
+         var col;
+         if (ledStatus['status']!=true) {
+            col = Colors.red;
+       
+           
+         }
+          if (ledStatus['status']==true) {
+          col = Colors.green;
+           
+         }
            
              return Container(
               child: Column(
                 children: [ 
                    if(ledStatus['piece']=="garage")...[ 
                      
-                     Text('status : ${ledStatus['status']!=true?'off':'on'}'),
+                     Text('status : ${ledStatus['status']!=true?'off':'on'}',
+                     style: 
+                     TextStyle(color: col),),
                     Text('nom : ${ledStatus['nom']}'),
                      Text('piece : ${ledStatus['piece']}'),
          SizedBox(height: 50,)

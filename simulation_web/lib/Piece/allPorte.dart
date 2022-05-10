@@ -49,7 +49,16 @@ class _porteSalonState extends State<porteSalon> {
                 Map<String, dynamic> statusPorte = document.data()! as Map<String, dynamic>;
                bool valeur = statusPorte['status'];
          int i = 0;
-        
+              var col;
+         if (statusPorte['status']!=true) {
+            col = Colors.red;
+       
+           
+         }
+          if (statusPorte['status']==true) {
+          col = Colors.green;
+           
+         }
     
            
             return Container(
@@ -61,7 +70,8 @@ class _porteSalonState extends State<porteSalon> {
  if(statusPorte['piece']=="salon")...[
                    
 
-                             Text('status : ${statusPorte['status']!=true?'off':'on'}'),
+                             Text('status : ${statusPorte['status']!=true?'off':'on'}', style: 
+                     TextStyle(color: col),),
                     Text('nom : ${statusPorte['nom']}'),
                      Text('piece : ${statusPorte['piece']}'),
          SizedBox(height: 50,),
@@ -117,7 +127,16 @@ class _porteCuisineState extends State<porteCuisine> {
           children: snapshot.data!.docs.map((DocumentSnapshot document) {
                 Map<String, dynamic> statusPorte = document.data()! as Map<String, dynamic>;
                bool valeur = statusPorte['status'];
-         
+             var col;
+         if (statusPorte['status']!=true) {
+            col = Colors.red;
+       
+           
+         }
+          if (statusPorte['status']==true) {
+          col = Colors.green;
+           
+         }
            
             return Container(
               child: Column(
@@ -125,7 +144,8 @@ class _porteCuisineState extends State<porteCuisine> {
  if(statusPorte['piece']=="cuisine")...[
                    
 
-                             Text('status : ${statusPorte['status']!=true?'off':'on'}'),
+                             Text('status : ${statusPorte['status']!=true?'off':'on'}', style: 
+                     TextStyle(color: col),),
                     Text('nom : ${statusPorte['nom']}'),
                      Text('piece : ${statusPorte['piece']}'),
          SizedBox(height: 50,),
@@ -176,7 +196,16 @@ class _porteChambreState extends State<porteChambre> {
           children: snapshot.data!.docs.map((DocumentSnapshot document) {
                 Map<String, dynamic> statusPorte = document.data()! as Map<String, dynamic>;
                bool valeur = statusPorte['status'];
-         
+             var col;
+         if (statusPorte['status']!=true) {
+            col = Colors.red;
+       
+           
+         }
+          if (statusPorte['status']==true) {
+          col = Colors.green;
+           
+         }
            
             return Container(
               child: Column(
@@ -185,7 +214,8 @@ class _porteChambreState extends State<porteChambre> {
  if(statusPorte['piece']=="chambre")...[
                    
 
-                             Text('status : ${statusPorte['status']!=true?'off':'on'}'),
+                             Text('status : ${statusPorte['status']!=true?'off':'on'}', style: 
+                     TextStyle(color: col),),
                     Text('nom : ${statusPorte['nom']}'),
                      Text('piece : ${statusPorte['piece']}'),
          SizedBox(height: 50,),
@@ -237,7 +267,16 @@ class _porteGarageState extends State<porteGarage> {
                 Map<String, dynamic> statusPorte = document.data()! as Map<String, dynamic>;
                bool valeur = statusPorte['status'];
          
+               var col;
+         if (statusPorte['status']!=true) {
+            col = Colors.red;
+       
            
+         }
+          if (statusPorte['status']==true) {
+          col = Colors.green;
+           
+         }
             return Container(
               child: Column(
                 children: [
@@ -245,7 +284,8 @@ class _porteGarageState extends State<porteGarage> {
  if(statusPorte['piece']=="garage")...[
                    
 
-                             Text('status : ${statusPorte['status']!=true?'off':'on'}'),
+                             Text('status : ${statusPorte['status']!=true?'off':'on'}', style: 
+                     TextStyle(color: col),),
                     Text('nom : ${statusPorte['nom']}'),
                      Text('piece : ${statusPorte['piece']}'),
          SizedBox(height: 50,),
