@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
@@ -38,7 +37,16 @@ class _voletSalonState extends State<voletSalon> {
                 Map<String, dynamic> statusVolet = document.data()! as Map<String, dynamic>;
                bool valeur = statusVolet['status'];
          
+              var col;
+         if (statusVolet['status']!=true) {
+            col = Colors.red;
+       
            
+         }
+          if (statusVolet['status']==true) {
+          col = Colors.green;
+           
+         }
             return Container(
               child: Column(
                 children: [
@@ -46,7 +54,8 @@ class _voletSalonState extends State<voletSalon> {
                   if(statusVolet['piece']=="salon")...[
               
 
-                             Text('status : ${statusVolet['status']!=true?'off':'on'}'),
+                             Text('status : ${statusVolet['status']!=true?'off':'on'}', style: 
+                     TextStyle(color: col),),
                     Text('nom : ${statusVolet['nom']}'),
                      Text('piece : ${statusVolet['piece']}'),
          SizedBox(height: 50,),
@@ -99,14 +108,24 @@ class _voletCuisineState extends State<voletCuisine> {
                 Map<String, dynamic> statusVolet = document.data()! as Map<String, dynamic>;
                bool valeur = statusVolet['status'];
          
+                var col;
+         if (statusVolet['status']!=true) {
+            col = Colors.red;
+       
            
+         }
+          if (statusVolet['status']==true) {
+          col = Colors.green;
+           
+         }
             return Container(
               child: Column(
                 children: [
                   if(statusVolet['piece']=="cuisine")...[
                    
 
-                             Text('status : ${statusVolet['status']!=true?'off':'on'}'),
+                             Text('status : ${statusVolet['status']!=true?'off':'on'}', style: 
+                     TextStyle(color: col),),
                     Text('nom : ${statusVolet['nom']}'),
                      Text('piece : ${statusVolet['piece']}'),
          SizedBox(height: 50,),
@@ -152,7 +171,16 @@ class _voletChambreState extends State<voletChambre> {
           children: snapshot.data!.docs.map((DocumentSnapshot document) {
                 Map<String, dynamic> statusVolet = document.data()! as Map<String, dynamic>;
                bool valeur = statusVolet['status'];
-         
+              var col;
+         if (statusVolet['status']!=true) {
+            col = Colors.red;
+       
+           
+         }
+          if (statusVolet['status']==true) {
+          col = Colors.green;
+           
+         }
            
             return Container(
               child: Column(
@@ -161,7 +189,8 @@ class _voletChambreState extends State<voletChambre> {
                   if(statusVolet['piece']=="chambre")...[
               
 
-                             Text('status : ${statusVolet['status']!=true?'off':'on'}'),
+                             Text('status : ${statusVolet['status']!=true?'off':'on'}', style: 
+                     TextStyle(color: col),),
                     Text('nom : ${statusVolet['nom']}'),
                      Text('piece : ${statusVolet['piece']}'),
          SizedBox(height: 50,),
@@ -215,7 +244,16 @@ class _voletGarageState extends State<voletGarage> {
                 Map<String, dynamic> statusVolet = document.data()! as Map<String, dynamic>;
                bool valeur = statusVolet['status'];
          
+                var col;
+         if (statusVolet['status']!=true) {
+            col = Colors.red;
+       
            
+         }
+          if (statusVolet['status']==true) {
+          col = Colors.green;
+           
+         }
             return Container(
               child: Column(
                 children: [
@@ -223,7 +261,8 @@ class _voletGarageState extends State<voletGarage> {
                   if(statusVolet['piece']=="garage")...[
               
 
-                             Text('status : ${statusVolet['status']!=true?'off':'on'}'),
+                             Text('status : ${statusVolet['status']!=true?'off':'on'}', style: 
+                     TextStyle(color: col),),
                     Text('nom : ${statusVolet['nom']}'),
                      Text('piece : ${statusVolet['piece']}'),
          SizedBox(height: 50,),
