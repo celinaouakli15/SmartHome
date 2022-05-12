@@ -52,9 +52,10 @@ class _allAlarmeState extends State<allAlarme> {
                  alarmeChambre(),
                  alarmeGarage(),
                  SizedBox(height: 20,),
-                allOnAlarme(),
+              
             allOffAlarm(),
-            
+              SizedBox(height: 20,),
+              allOnAlarme(),
                
         
             
@@ -612,11 +613,10 @@ class _allOffAlarmState extends State<allOffAlarm> {
                    
            
             return Padding(
-                padding: const EdgeInsets.all(20),
-                
+               padding: const EdgeInsets.fromLTRB(20,0,20,0),                
               child: Column(
                 children: [
-                   if(document.id=="alarm1")...[
+                   if(document.id=="bouton")...[
            ElevatedButton(
   style: ElevatedButton.styleFrom(primary: Colors.green,
     minimumSize: const Size.fromHeight(50),
@@ -689,16 +689,14 @@ class _allOnAlarmeState extends State<allOnAlarme> {
                bool valeur = ledStatus['status'];
          
             listId.add(document.id);
-               bool allOff;
-                    var allOn;
-                   
+        
            
             return Padding(
                    padding: const EdgeInsets.fromLTRB(20,0,20,0),
                 
               child: Column(
                 children: [
-                   if(document.id=="alarm1")...[
+                   if(document.id=="bouton")...[
            ElevatedButton(
   style: ElevatedButton.styleFrom(primary: Colors.green,
     minimumSize: const Size.fromHeight(50),

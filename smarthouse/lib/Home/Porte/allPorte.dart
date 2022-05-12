@@ -50,8 +50,10 @@ class _allPorteState extends State<allPorte> {
                porteChambre(),
                porteGarage(),
            
-               allOnPorte(),
-            allOffPorte(),
+           
+            allOffPorte(),  
+              SizedBox(height: 20,),
+              allOnPorte(),
             
           ],
           ),
@@ -621,11 +623,10 @@ class _allOffPorteState extends State<allOffPorte> {
                    
 
             return Padding(
-                padding: const EdgeInsets.all(20),
-                
+   padding: const EdgeInsets.fromLTRB(20,0,20,0),                  
               child: Column(
                 children: [
-                   if(document.id=="PorteGarage")...[
+                   if(document.id=="bouton")...[
              
                 ElevatedButton(
   style: ElevatedButton.styleFrom(primary: Colors.green,
@@ -712,7 +713,7 @@ class _allOnPorteState extends State<allOnPorte> {
                 
               child: Column(
                 children: [
-                   if(document.id=="PorteGarage")...[
+                   if(document.id=="bouton")...[
              
                 ElevatedButton(
   style: ElevatedButton.styleFrom(primary: Colors.green,
@@ -727,7 +728,7 @@ class _allOnPorteState extends State<allOnPorte> {
                        FirebaseFirestore.instance.collection('Porte').
                      doc(listId[i])
                     .update({
-                              "status": false
+                              "status": true
                                })
                     .then((value) => print("User Updated"))
                     .catchError((error) => print("Failed to update user: $error"));}

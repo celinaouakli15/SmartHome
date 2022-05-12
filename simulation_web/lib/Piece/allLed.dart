@@ -1,7 +1,6 @@
 
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ledSalon extends StatefulWidget {
@@ -44,7 +43,8 @@ compteur(i){
                bool valeur = ledStatus['status'];
          listId.add(document.id);
 var col;
-         if (ledStatus['status']!=true) {
+if (ledStatus['nom']!="onoff") {
+   if (ledStatus['status']!=true) {
             col = Colors.red;
        
            
@@ -54,6 +54,8 @@ var col;
            
          }
            
+}
+        
        
       
          print((((listId.length)/i)).toString());
@@ -62,12 +64,19 @@ var col;
                 children: [ 
   
                if(ledStatus['piece']=="salon")...[ 
-                     
-                     Text('status : ${ledStatus['status']!=true?'off':'on'}',style: 
+                                
+                      if(ledStatus['nom']!="onoff")...[     
+                         Text("Led",
+                       style: TextStyle(fontSize: 20,color: Colors.purple),), 
+                     Text('status : ${ledStatus['status']!=true?'off':'on'}',
+                     style: 
                      TextStyle(color: col),),
                     Text('nom : ${ledStatus['nom']}'),
                      Text('piece : ${ledStatus['piece']}'),
-         SizedBox(height: 50,)],
+         SizedBox(height: 50,)    ],
+                                    
+                       
+         ],
   
                      ]
                 
@@ -115,7 +124,8 @@ int i = 0;
                 Map<String, dynamic> ledStatus = document.data()! as Map<String, dynamic>;
                bool valeur = ledStatus['status'];
          var col;
-         if (ledStatus['status']!=true) {
+       if (ledStatus['nom']!="onoff") {
+   if (ledStatus['status']!=true) {
             col = Colors.red;
        
            
@@ -124,20 +134,29 @@ int i = 0;
           col = Colors.green;
            
          }
+           
+}
            i++;
         return Container(
               child: Column(
                 children: [ 
   
                 if(ledStatus['piece']=="cuisine")...[ 
-                     
-                     Text('status : ${ledStatus['status']!=true?'off':'on'}',style: 
+                                 
+                   if(ledStatus['nom']!="onoff")...[     
+                         Text("Led",
+                       style: TextStyle(fontSize: 20,color: Colors.purple),), 
+                     Text('status : ${ledStatus['status']!=true?'off':'on'}',
+                     style: 
                      TextStyle(color: col),),
                     Text('nom : ${ledStatus['nom']}'),
                      Text('piece : ${ledStatus['piece']}'),
-         SizedBox(height: 50,)],
+         SizedBox(height: 50,)    ],
+                                    
+                       
+         ],],
   
-                     ]
+                     
                 
               ),
             
@@ -187,7 +206,8 @@ class _ledChambreState extends State<ledChambre> {
                bool valeur = ledStatus['status'];
          
            var col;
-         if (ledStatus['status']!=true) {
+        if (ledStatus['nom']!="onoff") {
+   if (ledStatus['status']!=true) {
             col = Colors.red;
        
            
@@ -196,19 +216,27 @@ class _ledChambreState extends State<ledChambre> {
           col = Colors.green;
            
          }
-             return Container(
+           
+}     return Container(
               child: Column(
                 children: [ 
   
                 if(ledStatus['piece']=="chambre")...[ 
-                     
- Text('status : ${ledStatus['status']!=true?'off':'on'}',style: 
+                                 
+                        if(ledStatus['nom']!="onoff")...[     
+                         Text("Led",
+                       style: TextStyle(fontSize: 20,color: Colors.purple),), 
+                     Text('status : ${ledStatus['status']!=true?'off':'on'}',
+                     style: 
                      TextStyle(color: col),),
-                                         Text('nom : ${ledStatus['nom']}'),
+                    Text('nom : ${ledStatus['nom']}'),
                      Text('piece : ${ledStatus['piece']}'),
-         SizedBox(height: 50,)],
+         SizedBox(height: 50,)    ],
+                                    
+                       
+         ],],
   
-                     ]
+                     
                 
               ),
             
@@ -255,7 +283,8 @@ class _ledGarageState extends State<ledGarage> {
                 Map<String, dynamic> ledStatus = document.data()! as Map<String, dynamic>;
                bool valeur = ledStatus['status'];
          var col;
-         if (ledStatus['status']!=true) {
+        if (ledStatus['nom']!="onoff") {
+   if (ledStatus['status']!=true) {
             col = Colors.red;
        
            
@@ -265,17 +294,23 @@ class _ledGarageState extends State<ledGarage> {
            
          }
            
+}    
              return Container(
               child: Column(
                 children: [ 
+
                    if(ledStatus['piece']=="garage")...[ 
-                     
+                       if(ledStatus['nom']!="onoff")...[     
+                         Text("Led",
+                       style: TextStyle(fontSize: 20,color: Colors.purple),), 
                      Text('status : ${ledStatus['status']!=true?'off':'on'}',
                      style: 
                      TextStyle(color: col),),
                     Text('nom : ${ledStatus['nom']}'),
                      Text('piece : ${ledStatus['piece']}'),
-         SizedBox(height: 50,)
+         SizedBox(height: 50,)    ],
+                                    
+                       
          ],
   
                                 

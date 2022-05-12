@@ -636,7 +636,7 @@ class _allOffLedState extends State<allOffLed> {
                 
               child: Column(
                 children: [
-                   if(document.id=="led1")...[
+                   if(document.id=="bouton")...[
                    
                    
 ElevatedButton(
@@ -725,7 +725,7 @@ class _allOnLedState extends State<allOnLed> {
               child: Column(
                 children: [
                 
-                   if(document.id=="led2")...[
+                   if(document.id=="bouton")...[
                    
                    
 ElevatedButton(

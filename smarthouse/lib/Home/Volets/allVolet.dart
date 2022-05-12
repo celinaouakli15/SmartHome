@@ -53,9 +53,10 @@ class _allVoletState extends State<allVolet> {
                   voletChambre(),
                     voletGarage(),
                     SizedBox(height: 20,),
-                    allOnVolet(),
+                 
              allOffVolet(),
-               
+               SizedBox(height: 20,),
+                  allOnVolet(),
         
             
           ],
@@ -601,10 +602,9 @@ class _allOffVoletState extends State<allOffVolet> {
                     var allOn;
                    
             return Padding(
-               padding: const EdgeInsets.all(20),
-              child: Column(
+   padding: const EdgeInsets.fromLTRB(20,0,20,0),                child: Column(
                 children: [
-                   if(document.id=="salon")...[
+                   if(document.id=="bouton")...[
                    
                 ElevatedButton(
   style: ElevatedButton.styleFrom(primary: Colors.green,
@@ -688,7 +688,7 @@ class _allOnVoletState extends State<allOnVolet> {
                     padding: const EdgeInsets.fromLTRB(20,0,20,0),
               child: Column(
                 children: [
-                   if(document.id=="salon")...[
+                   if(document.id=="bouton")...[
                    
                 ElevatedButton(
   style: ElevatedButton.styleFrom(primary: Colors.green,

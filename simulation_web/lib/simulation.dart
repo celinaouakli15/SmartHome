@@ -38,6 +38,23 @@ class _simulationState extends State<simulation> {
                        Text("Lien apk de l'application en date du 10/05/2022  :  "),
                          Text("https://www.swisstransfer.com/d/92d435cc-7a23-473a-9061-51dda3025ee9"),
                  ],),
+                 Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                   children: [ SizedBox(height: 50,width: 120,),
+                       Text("Salon",
+                       style: TextStyle(fontSize: 30,color: Color.fromARGB(255, 255, 255, 255)),), 
+                       SizedBox(height: 50,width: 100,),
+                        Text("Cuisine",
+                       style: TextStyle(fontSize: 30,color: Color.fromARGB(255, 255, 255, 255)),),  
+                       SizedBox(height: 50,width: 100,),
+                        Text("Garage",
+                       style: TextStyle(fontSize: 30,color: Color.fromARGB(255, 255, 255, 255)),),  
+                       SizedBox(height: 50,width: 100,),
+                        Text("Chambre",
+                       style: TextStyle(fontSize: 30,color: Color.fromARGB(255, 255, 255, 255)),),  
+                       SizedBox(height: 50,width: 100,),
+
+                 ],),
                      Row(
                        mainAxisAlignment: MainAxisAlignment.center,
                    
@@ -45,40 +62,24 @@ class _simulationState extends State<simulation> {
                       Column(
                         
                      children: [
-                       Text("Salon",
-                       style: TextStyle(fontSize: 30,color: Color.fromARGB(255, 255, 255, 255)),), 
-                       SizedBox(height: 50,),
-                        Text("Led",
-                       style: TextStyle(fontSize: 20,color: Colors.pink),), 
+               
+                       
                        ledSalon(),
-                         Text("Volet",
-                       style: TextStyle(fontSize: 20,color: Colors.pink),), 
                        voletSalon(),
-                           Text("Alarme",
-                       style: TextStyle(fontSize: 20,color: Colors.pink),), alarmeSalon(), 
-                           Text("Porte",
-                       style: TextStyle(fontSize: 20,color: Colors.pink),), porteSalon()
+                         alarmeSalon(), 
+                        porteSalon()
                      ],
                    ),
                    SizedBox(width: 100,),
 
                     Column(
                      children: [
-                       Text("Cuisine",
-                       style: TextStyle(fontSize: 30,color: Color.fromARGB(255, 255, 255, 255)),),  
-                       SizedBox(height: 50,),
-                       Text("Led",
-                       style: TextStyle(fontSize: 20,color: Colors.blue),),  
-                       ledCuisine(),
-                       Text("Volet",
-                       style: TextStyle(fontSize: 20,color: Colors.blue),), 
+                 
+                      ledCuisine(),
                        voletCuisine(),
-                       Text("Alarme",
-                       style: TextStyle(fontSize: 20,color: Colors.blue),), 
+                      
                        alarmeCuisine(),
-                       Text("Porte",
-                       style: TextStyle(fontSize: 20,color: Colors.blue),), 
-                       porteCuisine()
+                      porteCuisine()
                        
                      ],
                    ),
@@ -86,21 +87,11 @@ class _simulationState extends State<simulation> {
 
                     Column(
                      children: [
-                       Text("Garage",
-                       style: TextStyle(fontSize: 30,color: Color.fromARGB(255, 255, 255, 255)),),  
-                       SizedBox(height: 50,),
-                        Text("Led",
-                       style: TextStyle(fontSize: 20,color: Colors.purple),),  
+          
                        ledGarage(),
-                       Text("Volet",
-                       style: TextStyle(fontSize: 20,color: Colors.purple),),  
-                       voletGarage(),
+                        voletGarage(),
                        
-                       Text("Alarme",
-                       style: TextStyle(fontSize: 20,color: Colors.purple),),  
                        alarmeGarage(),
-                       Text("Porte",
-                       style: TextStyle(fontSize: 20,color: Colors.purple),),  
                        porteGarage(),
                  
                      ],
@@ -109,24 +100,13 @@ class _simulationState extends State<simulation> {
 
                     Column(
                      children: [
-                       Text("Chambre",
-                       style: TextStyle(fontSize: 30,color: Color.fromARGB(255, 255, 255, 255)),), 
-                       SizedBox(height: 50,),
-                        Text("Led",
-                       style: TextStyle(fontSize: 20,color: Colors.grey),),  
-                       ledChambre(),
-                       Text("Volet",
-                       style: TextStyle(fontSize: 20,color: Colors.grey),),
+   ledChambre(),
                          voletChambre(),
-
-                       Text("Alarme",
-                       style: TextStyle(fontSize: 20,color: Colors.grey),),  
-                       alarmeChambre(),
-                       Text("Porte",
-                       style: TextStyle(fontSize: 20,color: Colors.grey),),  
-                       porteChambre()
+ alarmeChambre(),
+                        porteChambre()
                      ],
                    ),
+                   
 ],
                  ),
                      

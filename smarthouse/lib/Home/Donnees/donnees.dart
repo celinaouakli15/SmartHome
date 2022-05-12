@@ -99,7 +99,7 @@ class _nbrLedState extends State<nbrLed> {
               child: Column(
                 children: [
 
-                   if(ledStatus['status']==true)...[
+                   if(ledStatus['status']==true && ledStatus['nom']!="onoff")...[
                    Container(
                       margin: const EdgeInsets.all(20.0),
                  
@@ -190,7 +190,7 @@ class _nbrVoletState extends State<nbrVolet> {
               child: Column(
                 children: [
 
-                   if(statusVolet['status']==true)...[
+                   if(statusVolet['status']==true&& statusVolet['nom']!="onoff")...[
                    Container(
                       margin: const EdgeInsets.all(20.0),
                  
@@ -290,7 +290,7 @@ print(listIdPorte.length);
                 children: [
                   
 
-                   if(ledStatus['status']==true)...[
+                   if(ledStatus['status']==true&& ledStatus['nom']!="onoff")...[
                    Container(
                       margin: const EdgeInsets.all(20.0),
                  
@@ -393,7 +393,7 @@ print(listIdAlarme.length);
               child: Column(
                 children: [         
 
-                   if(ledStatus['status']==true)...[
+                   if(ledStatus['status']==true&& ledStatus['nom']!="onoff")...[
                    Container(
                       margin: const EdgeInsets.all(20.0),
                  

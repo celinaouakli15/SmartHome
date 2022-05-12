@@ -49,7 +49,8 @@ class _alarmeSalonState extends State<alarmeSalon> {
                 Map<String, dynamic> statusAlarme = document.data()! as Map<String, dynamic>;
                bool valeur = statusAlarme['status'];
              var col;
-         if (statusAlarme['status']!=true) {
+           if (statusAlarme['nom']!="onoff") {
+                  if (statusAlarme['status']!=true) {
             col = Colors.red;
        
            
@@ -58,12 +59,14 @@ class _alarmeSalonState extends State<alarmeSalon> {
           col = Colors.green;
            
          }
+             }
            
             return Container(
               child: Column(
                 children: [
                     if(statusAlarme['piece']=="salon")...[
-                   
+                                     Text("Alarme",
+                       style: TextStyle(fontSize: 20,color: Colors.pink),),
 
                              Text('status : ${statusAlarme['status']!=true?'off':'on'}', style: 
                      TextStyle(color: col),),
@@ -121,7 +124,8 @@ class _alarmeCuisineState extends State<alarmeCuisine> {
                bool valeur = statusAlarme['status'];
          
              var col;
-         if (statusAlarme['status']!=true) {
+          if (statusAlarme['nom']!="onoff") {
+                  if (statusAlarme['status']!=true) {
             col = Colors.red;
        
            
@@ -130,11 +134,15 @@ class _alarmeCuisineState extends State<alarmeCuisine> {
           col = Colors.green;
            
          }
+             }
            
             return Container(
               child: Column(
-                children: [if(statusAlarme['piece']=="cuisine")...[
-                   
+                children: [
+                  
+                  if(statusAlarme['piece']=="cuisine")...[
+                                     Text("Alarme",
+                       style: TextStyle(fontSize: 20,color: Colors.blue),),
 
                              Text('status : ${statusAlarme['status']!=true?'off':'on'}', style: 
                      TextStyle(color: col),),
@@ -188,7 +196,8 @@ class _alarmeChambreState extends State<alarmeChambre> {
                 Map<String, dynamic> statusAlarme = document.data()! as Map<String, dynamic>;
                bool valeur = statusAlarme['status'];
            var col;
-         if (statusAlarme['status']!=true) {
+         if (statusAlarme['nom']!="onoff") {
+                  if (statusAlarme['status']!=true) {
             col = Colors.red;
        
            
@@ -197,13 +206,15 @@ class _alarmeChambreState extends State<alarmeChambre> {
           col = Colors.green;
            
          }
+             }
            
            
             return Container(
               child: Column(
                 children: [if(statusAlarme['piece']=="chambre")...[
                    
-
+                  Text("Alarme",
+                       style: TextStyle(fontSize: 20,color: Colors.grey),),
                              Text('status : ${statusAlarme['status']!=true?'off':'on'}', style: 
                      TextStyle(color: col),),
                     Text('nom : ${statusAlarme['nom']}'),
@@ -255,7 +266,8 @@ class _alarmeGarageState extends State<alarmeGarage> {
                bool valeur = statusAlarme['status'];
          
              var col;
-         if (statusAlarme['status']!=true) {
+             if (statusAlarme['nom']!="onoff") {
+                  if (statusAlarme['status']!=true) {
             col = Colors.red;
        
            
@@ -264,12 +276,15 @@ class _alarmeGarageState extends State<alarmeGarage> {
           col = Colors.green;
            
          }
+             }
+      
            
             return Container(
               child: Column(
                 children: [
                   if(statusAlarme['piece']=="garage")...[
-                   
+                                     Text("Alarme",
+                       style: TextStyle(fontSize: 20,color: Colors.purple),),
 
                              Text('status : ${statusAlarme['status']!=true?'off':'on'}', style: 
                      TextStyle(color: col),),
