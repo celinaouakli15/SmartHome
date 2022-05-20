@@ -69,7 +69,7 @@ class _porteSalonState extends State<porteSalon> {
                 
  if(statusPorte['piece']=="salon")...[
                     Text("Porte",
-                       style: TextStyle(fontSize: 20,color: Colors.pink),), 
+                       style: TextStyle(fontSize: 20,color: Colors.green),), 
 
                              Text('status : ${statusPorte['status']!=true?'off':'on'}', style: 
                      TextStyle(color: col),),
@@ -145,7 +145,7 @@ class _porteCuisineState extends State<porteCuisine> {
  if(statusPorte['piece']=="cuisine")...[
                    
  Text("Porte",
-                       style: TextStyle(fontSize: 20,color: Colors.blue),), 
+                       style: TextStyle(fontSize: 20,color: Colors.green),), 
                              Text('status : ${statusPorte['status']!=true?'off':'on'}', style: 
                      TextStyle(color: col),),
                     Text('nom : ${statusPorte['nom']}'),
@@ -216,7 +216,7 @@ class _porteChambreState extends State<porteChambre> {
  if(statusPorte['piece']=="chambre")...[
                    
  Text("Porte",
-                       style: TextStyle(fontSize: 20,color: Colors.grey),), 
+                       style: TextStyle(fontSize: 20,color: Colors.green),), 
                              Text('status : ${statusPorte['status']!=true?'off':'on'}', style: 
                      TextStyle(color: col),),
                     Text('nom : ${statusPorte['nom']}'),
@@ -287,7 +287,7 @@ class _porteGarageState extends State<porteGarage> {
  if(statusPorte['piece']=="garage")...[
                    
  Text("Porte",
-                       style: TextStyle(fontSize: 20,color: Colors.purple),), 
+                       style: TextStyle(fontSize: 20,color: Colors.green),), 
                              Text('status : ${statusPorte['status']!=true?'off':'on'}', style: 
                      TextStyle(color: col),),
                     Text('nom : ${statusPorte['nom']}'),

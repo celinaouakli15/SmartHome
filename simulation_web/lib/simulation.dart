@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:simulation_web/Piece/allAlarme.dart';
 import 'package:simulation_web/Piece/allLed.dart';
 import 'package:simulation_web/Piece/allPorte.dart';
+import 'package:simulation_web/Piece/allTemperature.dart';
 import 'package:simulation_web/Piece/allVolet.dart';
 
 class simulation extends StatefulWidget {
@@ -32,12 +33,7 @@ class _simulationState extends State<simulation> {
                  
                  mainAxisAlignment: MainAxisAlignment.center,
                  children: [
-                   Row( 
-                     mainAxisAlignment: MainAxisAlignment.center,
-                     children: [  
-                       Text("Lien apk de l'application en date du 10/05/2022  :  "),
-                         Text("https://www.swisstransfer.com/d/92d435cc-7a23-473a-9061-51dda3025ee9"),
-                 ],),
+                  
                  Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                    children: [ SizedBox(height: 50,width: 120,),
@@ -62,25 +58,26 @@ class _simulationState extends State<simulation> {
                       Column(
                         
                      children: [
-               
-                       
+         
+                     
                        ledSalon(),
                        voletSalon(),
                          alarmeSalon(), 
-                        porteSalon()
+                        porteSalon(),
+                        temperatureSalon()
                      ],
                    ),
                    SizedBox(width: 100,),
 
                     Column(
                      children: [
-                 
+                
                       ledCuisine(),
                        voletCuisine(),
                       
                        alarmeCuisine(),
-                      porteCuisine()
-                       
+                      porteCuisine(),
+                       tempCuisine()
                      ],
                    ),
                    SizedBox(width: 100,),

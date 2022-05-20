@@ -55,6 +55,7 @@ if (ledStatus['nom']!="onoff") {
          }
            
 }
+    
         
        
       
@@ -65,9 +66,10 @@ if (ledStatus['nom']!="onoff") {
   
                if(ledStatus['piece']=="salon")...[ 
                                 
+                                
                       if(ledStatus['nom']!="onoff")...[     
                          Text("Led",
-                       style: TextStyle(fontSize: 20,color: Colors.purple),), 
+                       style: TextStyle(fontSize: 20,color: Colors.red),), 
                      Text('status : ${ledStatus['status']!=true?'off':'on'}',
                      style: 
                      TextStyle(color: col),),
@@ -145,7 +147,7 @@ int i = 0;
                                  
                    if(ledStatus['nom']!="onoff")...[     
                          Text("Led",
-                       style: TextStyle(fontSize: 20,color: Colors.purple),), 
+                       style: TextStyle(fontSize: 20,color: Colors.red),), 
                      Text('status : ${ledStatus['status']!=true?'off':'on'}',
                      style: 
                      TextStyle(color: col),),
@@ -225,7 +227,7 @@ class _ledChambreState extends State<ledChambre> {
                                  
                         if(ledStatus['nom']!="onoff")...[     
                          Text("Led",
-                       style: TextStyle(fontSize: 20,color: Colors.purple),), 
+                       style: TextStyle(fontSize: 20,color: Colors.red),), 
                      Text('status : ${ledStatus['status']!=true?'off':'on'}',
                      style: 
                      TextStyle(color: col),),
@@ -302,7 +304,7 @@ class _ledGarageState extends State<ledGarage> {
                    if(ledStatus['piece']=="garage")...[ 
                        if(ledStatus['nom']!="onoff")...[     
                          Text("Led",
-                       style: TextStyle(fontSize: 20,color: Colors.purple),), 
+                       style: TextStyle(fontSize: 20,color: Colors.red),), 
                      Text('status : ${ledStatus['status']!=true?'off':'on'}',
                      style: 
                      TextStyle(color: col),),

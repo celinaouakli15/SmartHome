@@ -68,12 +68,7 @@ class _voletSalonState extends State<voletSalon> {
                 ],
                 ],
    
-                
-                
-                     ]
-                  
-                
-                
+                     ]              
               ),
             );
           }).toList(),

@@ -66,9 +66,10 @@ class _alarmeSalonState extends State<alarmeSalon> {
                 children: [
                     if(statusAlarme['piece']=="salon")...[
                                      Text("Alarme",
-                       style: TextStyle(fontSize: 20,color: Colors.pink),),
+                       style: TextStyle(fontSize: 20,color: Colors.blue),),
 
-                             Text('status : ${statusAlarme['status']!=true?'off':'on'}', style: 
+                             Text('status : ${statusAlarme['status']!=true?'off':'on'}', 
+                             style: 
                      TextStyle(color: col),),
                     Text('nom : ${statusAlarme['nom']}'),
                      Text('piece : ${statusAlarme['piece']}'),
@@ -214,7 +215,7 @@ class _alarmeChambreState extends State<alarmeChambre> {
                 children: [if(statusAlarme['piece']=="chambre")...[
                    
                   Text("Alarme",
-                       style: TextStyle(fontSize: 20,color: Colors.grey),),
+                       style: TextStyle(fontSize: 20,color: Colors.blue),),
                              Text('status : ${statusAlarme['status']!=true?'off':'on'}', style: 
                      TextStyle(color: col),),
                     Text('nom : ${statusAlarme['nom']}'),
@@ -284,7 +285,7 @@ class _alarmeGarageState extends State<alarmeGarage> {
                 children: [
                   if(statusAlarme['piece']=="garage")...[
                                      Text("Alarme",
-                       style: TextStyle(fontSize: 20,color: Colors.purple),),
+                       style: TextStyle(fontSize: 20,color: Colors.blue),),
 
                              Text('status : ${statusAlarme['status']!=true?'off':'on'}', style: 
                      TextStyle(color: col),),
